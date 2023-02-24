@@ -20,7 +20,7 @@ export default function Wallet() {
             console.log("responce", response)
             window.close();
         })
-    }, [address])
+    }, [address, balance, chainId])
 
     return (
         <>

@@ -1,0 +1,26 @@
+{
+  "name": "meta_server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@3rdweb/hooks": "^1.9.2",
+    "@metamask/detect-provider": "^2.0.0",
+    "@next/font": "13.1.6",
+    "@react-oauth/google": "^0.8.0",
+    "eslint": "8.34.0",
+    "eslint-config-next": "13.1.6",
+    "jwt-decode": "^3.1.2",
+    "mariadb": "^3.1.0",
+    "mysql": "^2.18.1",
+    "next": "13.1.6",
+    "openai": "^3.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

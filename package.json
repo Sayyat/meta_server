@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -H api.amadao.network -p 30000",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {

@@ -4,7 +4,7 @@ import fs from "fs";
 export default function startWaiting(path, callback, timeout) {
     const timer = setTimeout(function () {
         stopWaiting(path);
-        callback('Timed out.');
+        callback({id: 0, msg: 'Timed out.'});
     }, timeout);
 
     const options = {
@@ -22,12 +22,12 @@ function stopWaiting(path) {
 }
 
 function onChanged(current, previous, path, timer, clientCallback) {
-    let type = 'File modified.';
-    if (current.mode === 0 && previous.mode === 0) type = 'No file.';
-    else if (current.mode > 0 && previous.mode === 0) type = 'File created.';
-    else if (current.mode === 0 && previous.mode > 0) type = 'File deleted.';
+    let type = {id: 1, msg: 'File modified.'};
+    if (current.mode === 0 && previous.mode === 0) type = {id: 2, msg: 'No File.'};
+    else if (current.mode > 0 && previous.mode === 0) type = {id: 3, msg: 'File created.'};
+    else if (current.mode === 0 && previous.mode > 0) type = {id: 4, msg: 'File deleted.'};
 
-    if (type !== 'No file.') {
+    if (type.id !== 2) {
         stopWaiting(path);
         clearTimeout(timer);
     }

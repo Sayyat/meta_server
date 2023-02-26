@@ -10,6 +10,9 @@ export default async function handler(req, res) {
 
     startWaiting(`./${email}.txt`, (result)=>{
         console.log(result)
+        // if there is no file
+        if(result.id === 2) return
+
         const data = fs.readFileSync(`./${email}.txt`)
         fs.unlinkSync(`./${email}.txt`)
         const json = JSON.parse(data.toString())

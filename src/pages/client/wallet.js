@@ -6,21 +6,21 @@ export default function Wallet() {
     const {connectWallet, address, error, chainId, balance} = useWeb3();
 
     const router = useRouter();
-    const {e} = router.query;
-    console.log(e)
+    const {i} = router.query;
+    console.log(i)
 
     error ? console.log(error) : null;
 
     useEffect(() => {
         if(!address) return
-        fetch(`../api/authorize/wallet/${e}`, {
+        fetch(`../api/authorize/wallet/${i}`, {
             method: "post",
             body: JSON.stringify({address, balance, chainId})
         }).then(response => {
             console.log("responce", response)
             window.close();
         })
-    }, [e, address, balance, chainId])
+    }, [i, address, balance, chainId])
 
     return (
         <>

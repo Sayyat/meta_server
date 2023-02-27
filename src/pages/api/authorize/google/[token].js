@@ -13,13 +13,20 @@ export default async function handler(req, res) {
     const result = await loginGoogle(email)
 
     let newData = {
+        id: result.id.toString(),
         email: email,
         firstname: given_name,
         nickname: result.nickname,
-        wallet: result.wallet,
+        walletData: {
+            address: result.walletAddress,
+            balance: result.walletBalance,
+            chainId: result.walletChainId
+        },
         avatarUrl: result.avatarUrl,
         imageBytes: ''
     }
+
+    console.log(newData)
 
     loadImage(picture, (imageBytes) => {
         const {token} = req.query

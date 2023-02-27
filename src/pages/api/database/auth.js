@@ -10,14 +10,14 @@ export async function loginMetamask(wallet) {
     }
 }
 
-export async function addMetamask(wallet, email) {
+export async function addMetamask(id, address, balance, chainId) {
 
-    const queryForEmail = await executeQuery(`select * from users where email = ${email};`)
+    const queryForEmail = await executeQuery(`select * from users where id = ${id};`)
     console.log(queryForEmail[0])
     if (queryForEmail.length === 0) return null
-    console.log("my data: ", email, wallet)
+    console.log("my data: ", id, address)
 
-    executeQuery("UPDATE `users` SET `wallet`='" + wallet + "' WHERE `email` = '" + email + "'")
+    executeQuery("UPDATE `users` SET `walletAddress`='" + address + "',`walletBalance`='" + balance + "',`walletChainId`='" + chainId + "' WHERE `id` = '" + id + "'")
         .then(response => {
             console.log(response)
             return true
@@ -37,7 +37,7 @@ export async function loginGoogle(email) {
 
     // sql query result has no error, and we have found user in database
     if (!loginQuery.error && loginQuery.result.length > 0) {
-        if(loginQuery.result.length > 1){
+        if (loginQuery.result.length > 1) {
             console.log("There are more than 1 user in table users")
         }
         return loginQuery.result[0]
@@ -48,10 +48,6 @@ export async function loginGoogle(email) {
     const id = signUpQuery.result.insertId
 
     return {
-        id: id,
-        nickname: '',
-        email: email,
-        wallet: '',
-        avatarUrl: ''
+        id: id, nickname: '', email: email, walletAddress: '', walletBalance: '', walletChainId: '' , avatarUrl: ''
     }
 }

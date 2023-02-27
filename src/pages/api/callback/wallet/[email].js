@@ -8,13 +8,15 @@ export default async function handler(req, res) {
     if(email.trim().length === 0)
         res.status(400).json({error: "email is empty"})
 
-    startWaiting(`./${email}.txt`, (result)=>{
+    const stripped = email.split("@")[0]
+
+    startWaiting(`./${stripped}.txt`, (result)=>{
         console.log(result)
         // if there is no file
         if(result.id === 2) return
 
-        const data = fs.readFileSync(`./${email}.txt`)
-        fs.unlinkSync(`./${email}.txt`)
+        const data = fs.readFileSync(`./${stripped}.txt`)
+        fs.unlinkSync(`./${stripped}.txt`)
         const json = JSON.parse(data.toString())
 
         res.status(200).json(json);

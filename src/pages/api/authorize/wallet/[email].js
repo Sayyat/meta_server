@@ -8,13 +8,15 @@ export default async function handler(req, res) {
     console.log({address, balance, chainId})
 
     const {email} = req.query
-    console.log(email.length)
+
 
     if(email.trim() === '') {
         res.status(400).json({error: "email is empty"})
         return
     }
 
-    fs.writeFileSync(`./${email}.txt`, JSON.stringify({address, balance, chainId}))
+    const stripped = email.split("@")[0]
+
+    fs.writeFileSync(`./${stripped}.txt`, JSON.stringify({address, balance, chainId}))
     res.status(200).json("You can close this window");
 }

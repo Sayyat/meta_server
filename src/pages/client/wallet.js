@@ -30,7 +30,6 @@ export default function Wallet() {
             >
                 Connect Wallet
             </button>
-
         </>
     )
 }

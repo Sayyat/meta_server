@@ -17,6 +17,8 @@ export default async function handler(req, res) {
 
     const stripped = email.split("@")[0]
 
+    console.log('stripped: ', stripped)
+
     fs.writeFileSync(`./${stripped}.txt`, JSON.stringify({address, balance, chainId}))
     res.status(200).json("You can close this window");
 }

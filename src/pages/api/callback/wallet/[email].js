@@ -10,6 +10,7 @@ export default async function handler(req, res) {
 
     const stripped = email.split("@")[0]
 
+    console.log('stripped: ', stripped)
     startWaiting(`./${stripped}.txt`, (result)=>{
         console.log(result)
         // if there is no file

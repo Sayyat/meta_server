@@ -1,1 +1,0 @@
-{"address":"0xFC049F5aC742b227eF4B8A18E0CDd77B167D692c","balance":{"value":{"type":"BigNumber","hex":"0x06f05b59d3b20000"},"formatted":"0.5"},"chainId":5}

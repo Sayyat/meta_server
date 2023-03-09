@@ -16,6 +16,7 @@ const privilegeExpiredTs = currentTimestamp + expirationTimeInSeconds;
 
 export default function handler(req, res) {
     const {channel, uid} = req.body
+    console.log(channel, uid)
     const tokenA = RtcTokenBuilder.buildTokenWithUid(
         appId,
         appCertificate,

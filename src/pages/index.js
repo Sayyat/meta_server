@@ -7,7 +7,6 @@ export default function Google() {
     const {t} = router.query;
     console.log(t)
 
-
     function success(result) {
         fetch(`../api/authorize/google/${t}`, {
             method: "post",
@@ -28,18 +27,20 @@ export default function Google() {
 
     return (
         <>
-            <GoogleOAuthProvider
-                clientId={"1073982536661-u50ihostb12fjvqlnph7g2gif14nam7b.apps.googleusercontent.com"}
-            >
-                <GoogleLogin
-                    onSuccess={success}
-                    onError={error}
-                    useOneTap={true}
-                    auto_select={true}
+            <div className="container">
+                <GoogleOAuthProvider
+                    clientId={"1073982536661-u50ihostb12fjvqlnph7g2gif14nam7b.apps.googleusercontent.com"}
                 >
+                    <GoogleLogin
+                        onSuccess={success}
+                        onError={error}
+                        useOneTap={true}
+                        auto_select={true}
+                    >
 
-                </GoogleLogin>
-            </GoogleOAuthProvider>
+                    </GoogleLogin>
+                </GoogleOAuthProvider>
+            </div>
         </>
     )
 }

@@ -1,7 +1,6 @@
-
 export default function Home() {
 
-    function login(){
+    function login() {
         const token = "123"
         // listen to callback
         fetch("/api/callback/google/" + token)
@@ -13,13 +12,14 @@ export default function Home() {
         window.open(`..?t=${token}`)
     }
 
-    return(
+    return (
         <>
-            index
-            <button
-                onClick={login}>
-                google oauth
-            </button>
+            <div className={"container"}>
+                <button
+                    onClick={login}>
+                    Войти через гугл
+                </button>
+            </div>
         </>
     )
 }

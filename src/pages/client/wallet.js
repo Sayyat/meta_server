@@ -12,7 +12,7 @@ export default function Wallet() {
     error ? console.log(error) : null;
 
     useEffect(() => {
-        if(!address) return
+        if (!address) return
         fetch(`../api/authorize/wallet/${i}`, {
             method: "post",
             body: JSON.stringify({address, balance, chainId})
@@ -24,12 +24,13 @@ export default function Wallet() {
 
     return (
         <>
-            <button
-                className="px-4 py-2 rounded-md bg-purple-600 cursor-pointer hover:bg-purple-500 text-xl font-semibold duration-100 text-white"
-                onClick={() => connectWallet("injected")}
-            >
-                Connect Wallet
-            </button>
+            <div className="container">
+                <button
+                    onClick={() => connectWallet("injected")}
+                >
+                    Подключить кошелек
+                </button>
+            </div>
         </>
     )
 }

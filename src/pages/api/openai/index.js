@@ -7,7 +7,13 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
-    const {question} = req.body
+    let body = req.body
+
+    if(typeof body == "string")
+        body = JSON.parse(body)
+
+    let {question} = body
+
     console.log(question)
     console.log(req.query)
     const lang = await detectLanguage(question)

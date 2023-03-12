@@ -1,5 +1,7 @@
 import React, {useRef, useState} from "react";
-import axios from "axios";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import {Container, Row} from "react-bootstrap";
 
 export default function Chat() {
     const [question, setQuestion] = useState('')
@@ -23,14 +25,22 @@ export default function Chat() {
 
     return (
         <>
-            <input type="text" onChange={(e) => changeQuestion(e)}/>
-            <div>
-                {answer}
-            </div>
-            <button
-                onClick={ask}>
-                Ask
-            </button>
+            <Container>
+                <Row>
+                    <h2>Question</h2>
+                    <Form.Control as="textarea" rows={5} onChange={(e) => changeQuestion(e)}/>
+
+                    <Button
+                        onClick={ask}>
+                        Ask
+                    </Button>
+                </Row>
+                <Row>
+                    <h2>Answer</h2>
+                    <Form.Control as="textarea" rows={10} readOnly/>
+
+                </Row>
+            </Container>
         </>
     )
 }

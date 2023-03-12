@@ -1,5 +1,6 @@
 import React, {useRef, useState} from "react";
 import axios from "axios";
+import Image from "next/image";
 
 export default function Chat() {
     const description = useRef()
@@ -33,7 +34,7 @@ export default function Chat() {
             <div>
                 {
                     urls.map((url, index) => (
-                        <img src={url.url} alt={index} key={index}/>
+                        <Image src={url.url} alt={"" + index} key={index}/>
                     ))
                 }
             </div>

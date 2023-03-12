@@ -15,7 +15,7 @@ export default function Chat() {
         }).then((response => response.json()))
             .then((result) => {
                 const answer = result.answer.split("\n\n")
-                if(answer.length > 1)
+                if(answer.length > 1 && answer[0].trim().length > 0)
                     setAddition(question + answer[0])
                 else setAddition('')
                 setAnswer(answer[answer.length - 1])

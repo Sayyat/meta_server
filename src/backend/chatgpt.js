@@ -37,7 +37,7 @@ async function image(description, count, size) {
     console.log({description,count,size})
     return await openai.createImage({
         prompt: description,
-        n: count,
+        n: Math.min(10,count),
         size: size,
     })
 }

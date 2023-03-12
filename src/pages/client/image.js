@@ -1,40 +1,32 @@
-import React, {useRef, useState} from "react";
-import axios from "axios";
-import Image from "next/image";
-
+import React, { useState} from "react";
 export default function Chat() {
-    const description = useRef()
-    const [file, setFile] = useState(null)
-    const [urls, setUrls] = useState([])
+    const [question, setQuestion] = useState('')
+    const [urls, setUrls] = useState([{}])
 
     function ask() {
-        fetch("/api/openai/image/variants", {
+        fetch("/api/openai/image", {
             method: "post",
-            body: JSON.stringify({image: file})
+            body: JSON.stringify({description: question})
         }).then((response => response.json()))
-            .then((answer) => {
-                console.log(answer)
+            .then((result) => {
+                setUrls(result)
+                console.log(urls)
             })
     }
 
-    function uploadFile(e) {
-        const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-        reader.onload = () => {
-            setFile(reader.result)
-            console.log(reader.result)
-        };
-        reader.onerror = () => setFile(null);
+    function changeQuestion(e) {
+        e.preventDefault()
+        setQuestion(e.target.value)
+        console.log(question)
     }
 
     return (
         <>
-            <input type="file" onChange={(e) => uploadFile(e)} accept={'image/png'}/>
-            <input type="text" ref={description}/>
+            <input type="text" onChange={(e) => changeQuestion(e)}/>
             <div>
                 {
                     urls.map((url, index) => (
-                        <Image src={url.url} alt={"" + index} key={index}/>
+                        <img src={url.url} alt={"" + index} key={index}/>
                     ))
                 }
             </div>

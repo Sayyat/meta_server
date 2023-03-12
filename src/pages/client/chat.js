@@ -5,6 +5,7 @@ import {Container, Row} from "react-bootstrap";
 
 export default function Chat() {
     const [question, setQuestion] = useState('')
+    const [addition, setAddition] = useState('')
     const [answer, setAnswer] = useState('')
 
     function ask() {
@@ -13,7 +14,11 @@ export default function Chat() {
             body: JSON.stringify({question: question})
         }).then((response => response.json()))
             .then((result) => {
-                setAnswer(result.answer)
+                const answer = result.answer.split("\n\n")
+                if(answer.length > 1)
+                    setAddition(question + answer[0])
+                else setAddition('')
+                setAnswer(answer[answer.length - 1])
             })
     }
 
@@ -36,8 +41,10 @@ export default function Chat() {
                     </Button>
                 </Row>
                 <Row>
+                    <h2>Бот решил дополнить</h2>
+                    <Form.Control as="textarea" rows={5} readOnly value={addition}/>
                     <h2>Ответ</h2>
-                    <Form.Control as="textarea" rows={10} readOnly/>
+                    <Form.Control as="textarea" rows={10} readOnly value={answer}/>
 
                 </Row>
             </Container>

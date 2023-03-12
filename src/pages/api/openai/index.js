@@ -9,10 +9,13 @@ export default async function handler(req, res) {
 
     let {question} = body
     console.log(question)
-    console.log(req.query)
     const lang = await detectLanguage(question)
     const englishQuestion = await translate(question, lang, 'en')
+    console.log(englishQuestion)
     const englishAnswer = await  davinci(englishQuestion);
+    console.log(englishAnswer)
     const nativeAnswer = await translate(englishAnswer, 'en', lang)
+    console.log(nativeAnswer)
+
     res.status(200).json({answer: nativeAnswer})
 }

@@ -1,31 +1,34 @@
-import {useRef, useState} from "react";
-
+import React, {useRef, useState} from "react";
+import axios from "axios";
 
 export default function Chat() {
+    const [question, setQuestion] = useState('')
+    const [answer, setAnswer] = useState('')
 
-    const question = useRef()
-    const [answer, setAnswer] = useState("Answer")
-
-
-    function ask(){
-        console.log(question.current.value)
-        fetch("/api/openai/",{
+    function ask() {
+        fetch("/api/openai/", {
             method: "post",
-            body: JSON.stringify({question : question.current.value})
+            body: JSON.stringify({question: question})
         }).then((response => response.json()))
-            .then((answer) => {
-                console.log(answer)
-                setAnswer(answer.answer)
+            .then((result) => {
+                setAnswer(result.answer)
             })
     }
-    return(
+
+    function changeQuestion(e) {
+        e.preventDefault()
+        setQuestion(e.target.value)
+        console.log(question)
+    }
+
+    return (
         <>
-            <input type="text"  ref={question}/>
-            <div >
+            <input type="text" onChange={(e) => changeQuestion(e)}/>
+            <div>
                 {answer}
             </div>
             <button
-            onClick={ask}>
+                onClick={ask}>
                 Ask
             </button>
         </>

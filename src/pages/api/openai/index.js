@@ -1,10 +1,7 @@
-import useChatgpt from "@/pages/hooks/useChatgpt";
-import useTranslate from "@/pages/hooks/useTranslate";
+import {davinci} from "/src/backend/chatgpt"
+import {detectLanguage, translate}  from "src/backend/translator";
 
 export default async function handler(req, res) {
-    const {davinci } = useChatgpt()
-    const {detectLanguage, translate} = useTranslate()
-
     let body = req.body
 
     if (typeof body == "string")

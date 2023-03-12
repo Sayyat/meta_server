@@ -1,10 +1,7 @@
-import useChatgpt from "@/pages/hooks/useChatgpt";
-import useTranslate from "@/pages/hooks/useTranslate";
+import {image} from "/src/backend/chatgpt"
+import {detectLanguage, translate}  from "src/backend/translator";
 
 export default async function handler(req, res) {
-    const {image } = useChatgpt()
-    const {detectLanguage, translate} = useTranslate()
-
     let { description }= JSON.parse(req.body)
 
     console.log(description)

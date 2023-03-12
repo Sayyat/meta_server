@@ -1,4 +1,4 @@
-import {imageVariants} from "@/pages/hooks/useChatgpt";
+import {imageVariants} from "@/backend/chatgpt";
 
 export default async function handler(req, res) {
     let {image }= JSON.parse(req.body)

@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThirdwebWeb3Provider } from "@3rdweb/hooks";
 
 import "regenerator-runtime/runtime";

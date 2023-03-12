@@ -1,4 +1,3 @@
-
 const {Configuration, OpenAIApi} = require("openai");
 
 const configuration = new Configuration({
@@ -33,12 +32,13 @@ async function gpt_3_5(dialogue) {
     return dialogue
 }
 
-async function image(description) {
-    console.log("description : ", description)
+async function image(description, count, size) {
+    size = fixSizes(size)
+    console.log({description,count,size})
     return await openai.createImage({
         prompt: description,
-        n: 9,
-        size: "256x256",
+        n: count,
+        size: size,
     })
 }
 
@@ -48,6 +48,22 @@ async function imageVariants(image) {
         n: 1,
         size: "256x256",
     })
+}
+
+
+function fixSizes(size){
+    const sizes = {
+        "0": "256x256",
+        "256": "256x256",
+        "256x256": "256x256",
+        "1": "512x512",
+        "512": "512x512",
+        "512x512": "512x512",
+        "2": "1024x1024",
+        "1024": "1024x1024",
+        "1024x1024": "1024x1024",
+    }
+    return sizes[size]
 }
 
 export {davinci, gpt_3_5, image, imageVariants}

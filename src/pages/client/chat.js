@@ -27,16 +27,16 @@ export default function Chat() {
         <>
             <Container>
                 <Row>
-                    <h2>Question</h2>
+                    <h2>Вопрос</h2>
                     <Form.Control as="textarea" rows={5} onChange={(e) => changeQuestion(e)}/>
 
                     <Button
                         onClick={ask}>
-                        Ask
+                        Отправить
                     </Button>
                 </Row>
                 <Row>
-                    <h2>Answer</h2>
+                    <h2>Ответ</h2>
                     <Form.Control as="textarea" rows={10} readOnly/>
 
                 </Row>

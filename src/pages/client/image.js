@@ -11,6 +11,9 @@ export default function ImageGenerator() {
     function ask() {
         fetch("/api/openai/image", {
             method: "post",
+            headers:{
+
+            },
             body: JSON.stringify({
                 description: description,
                 size: size,

@@ -2,9 +2,15 @@ import {image} from "/src/backend/chatgpt"
 import {detectLanguage, translate}  from "src/backend/translator";
 
 export default async function handler(req, res) {
-    let { description, count, size }= JSON.parse(req.body)
+    let body  = req.body
 
-    console.log(description)
+    if(typeof body === 'string') {
+        console.log("body is string")
+        body = JSON.parse(body)
+    }
+    let { description, count, size }= body
+
+    // console.log(description)
     const lang = await detectLanguage(description)
     console.log(lang)
     if(lang !== "en") {

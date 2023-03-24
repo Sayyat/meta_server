@@ -20,7 +20,7 @@ async function davinci(question) {
     return rawAnswer.data.choices[0].text
 }
 
-async function gpt_3_5(dialogue) {
+async function gpt_3_5(dialogue = []) {
     console.log("dialogue : ", dialogue)
 
     const rawAnswer = await openai.createChatCompletion({
@@ -28,16 +28,18 @@ async function gpt_3_5(dialogue) {
         messages: dialogue,
     });
 
-    dialogue.push({role: "AI", content: rawAnswer.data.choices[0].text})
+    console.log(rawAnswer.data.choices[0].message)
+
+    dialogue.push(rawAnswer.data.choices[0].message)
     return dialogue
 }
 
 async function image(description, count, size) {
     size = fixSizes(size)
-    console.log({description,count,size})
+    console.log({description, count, size})
     return await openai.createImage({
         prompt: description,
-        n: Math.min(10,count),
+        n: Math.min(10, count),
         size: size,
     })
 }
@@ -51,7 +53,7 @@ async function imageVariants(image) {
 }
 
 
-function fixSizes(size){
+function fixSizes(size) {
     const sizes = {
         "0": "256x256",
         "256": "256x256",

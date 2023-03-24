@@ -1,31 +1,35 @@
 import React, {useRef, useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import {Container, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
+import {forEach} from "react-bootstrap/ElementChildren";
 
 export default function Chat() {
+    const [dialogue, setDialogue] = useState([])
     const [question, setQuestion] = useState('')
     const [addition, setAddition] = useState('')
     const [answer, setAnswer] = useState('')
 
     function ask() {
+        let newMessage = [
+            {role: 'user', content: question}
+        ]
+
         fetch("/api/openai/", {
             method: "post",
-            body: JSON.stringify({question: question})
+            body: JSON.stringify({dialogue: [...dialogue, ...newMessage]})
         }).then((response => response.json()))
             .then((result) => {
-                const answer = result.answer.split("\n\n")
-                if(answer.length > 1 && answer[0].trim().length > 0)
-                    setAddition(question + answer[0])
-                else setAddition('')
-                setAnswer(answer[answer.length - 1])
+                console.log(result)
+                console.log(typeof result)
+                setDialogue(result)
             })
     }
 
     function changeQuestion(e) {
         e.preventDefault()
         setQuestion(e.target.value)
-        console.log(question)
+        // console.log(question)
     }
 
     return (
@@ -40,13 +44,26 @@ export default function Chat() {
                         Отправить
                     </Button>
                 </Row>
-                <Row>
-                    <h2>Бот решил дополнить</h2>
-                    <Form.Control as="textarea" rows={5} readOnly value={addition}/>
-                    <h2>Ответ</h2>
-                    <Form.Control as="textarea" rows={10} readOnly value={answer}/>
 
-                </Row>
+                {
+                    dialogue.length > 0 && dialogue.map((message, index) => {
+                        return (
+                            <div key={index}>
+                                <Row>
+                                    <Col sm={3}>
+                                        <Form.Control type="text" value={message.role === "user" ? "You" : "AI"} readOnly/>
+
+                                    </Col>
+                                    <Col sm={9}>
+                                        <Form.Control type="text" value={message.content} readOnly/>
+                                    </Col>
+                                </Row>
+                            </div>
+                        )
+                    })
+                }
+
+
             </Container>
         </>
     )

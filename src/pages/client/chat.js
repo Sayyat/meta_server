@@ -15,7 +15,7 @@ export default function Chat() {
             {role: 'user', content: question}
         ]
 
-        fetch("/api/openai/", {
+        fetch("/api/openai/dialogue", {
             method: "post",
             body: JSON.stringify({dialogue: [...dialogue, ...newMessage]})
         }).then((response => response.json()))

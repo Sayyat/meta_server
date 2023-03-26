@@ -21,17 +21,14 @@ async function davinci(question) {
 }
 
 async function gpt_3_5(dialogue = []) {
-    console.log("dialogue : ", dialogue)
+    console.log("chatgpt.js->dialogue: ", dialogue)
 
     const rawAnswer = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: dialogue,
     });
 
-    console.log(rawAnswer.data.choices[0].message)
-
-    dialogue.push(rawAnswer.data.choices[0].message)
-    return dialogue
+    return rawAnswer.data.choices[0].message
 }
 
 async function image(description, count, size) {

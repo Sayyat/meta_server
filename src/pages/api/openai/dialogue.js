@@ -12,9 +12,10 @@ export default async function handler(req, res) {
     translateDialogue(dialogue, (async (englishDialogue, languages) => {
         const lang = languages[languages.length - 1]
         const englishAnswer = await gpt_3_5(englishDialogue);
+        console.log(englishAnswer)
         const nativeAnswer = await translateSentence(englishAnswer.content, 'en', lang)
-        dialogue.push({role: englishAnswer.role, content: nativeAnswer})
-        res.status(200).json(dialogue)
+        console.log(nativeAnswer)
+        res.status(200).json({role: englishAnswer.role, content: nativeAnswer})
     }))
 }
 

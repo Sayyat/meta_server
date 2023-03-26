@@ -1,8 +1,7 @@
-import React, {useRef, useState} from "react";
+import React, { useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {Col, Container, Row} from "react-bootstrap";
-import {forEach} from "react-bootstrap/ElementChildren";
 
 export default function Chat() {
     const [dialogue, setDialogue] = useState([])
@@ -11,18 +10,14 @@ export default function Chat() {
     const [answer, setAnswer] = useState('')
 
     function ask() {
-        let newMessage = [
-            {role: 'user', content: question}
-        ]
+        dialogue.push({role: 'user', content: question})
 
         fetch("/api/openai/dialogue", {
             method: "post",
-            body: JSON.stringify({dialogue: [...dialogue, ...newMessage]})
+            body: JSON.stringify({dialogue: dialogue})
         }).then((response => response.json()))
             .then((result) => {
-                console.log(result)
-                console.log(typeof result)
-                setDialogue(result)
+                setDialogue([...dialogue, result])
             })
     }
 
@@ -51,11 +46,11 @@ export default function Chat() {
                             <div key={index}>
                                 <Row>
                                     <Col sm={3}>
-                                        <Form.Control type="text" value={message.role === "user" ? "You" : "AI"} readOnly/>
+                                        <Form.Control type="text" value={message.role} readOnly/>
 
                                     </Col>
                                     <Col sm={9}>
-                                        <Form.Control type="text" value={message.content} readOnly/>
+                                        <Form.Control as="textarea" rows={5} value={message.content} readOnly/>
                                     </Col>
                                 </Row>
                             </div>

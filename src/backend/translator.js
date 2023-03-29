@@ -7,7 +7,7 @@ async function detectLanguage(text) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '831893c4c3msh1321dc4593186e6p1825eejsnccf63a00daa2',
+            'X-RapidAPI-Key': process.env.RAPID_API_KEY,
             'X-RapidAPI-Host': 'translo.p.rapidapi.com'
         }
     };

@@ -16,7 +16,7 @@ export default async function handler(req, res) {
             return {role: message.role, content: message.content}
         })
         const lang = translations.pop()["lang"]
-
+        console.log({lang})
         const englishAnswer = await gpt_3_5(englishDialogue);
         console.log({englishAnswer})
 

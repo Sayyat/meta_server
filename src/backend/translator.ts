@@ -8,17 +8,21 @@ const CACHE_PATH = './cache/translations.txt'
 function detectLanguage(text): Promise<string> {
     try {
         const options = {
-            method: 'GET',
+            method: 'POST',
             headers: {
+                'content-type': 'application/json',
                 'X-RapidAPI-Key': process.env.RAPID_API_KEY,
-                'X-RapidAPI-Host': 'translo.p.rapidapi.com'
-            }
+                'X-RapidAPI-Host': process.env.RAPID_API_HOST
+            },
+            body: JSON.stringify({
+                text: text
+            })
         };
 
-        return fetch('https://translo.p.rapidapi.com/api/v3/detect?text=' + text, options)
+        return fetch('https://translate-plus.p.rapidapi.com/language_detect', options)
             .then(response => response.json())
             .then(json => {
-                return json.lang
+                return json.language_detection.language
             })
     } catch (err) {
         throw "Translator error: Cannot detect language"
@@ -60,24 +64,23 @@ function translateFromCache(text, from, to): string {
 
 
 async function translateFromApi(text, from, to) {
-    const encodedParams = new URLSearchParams();
-    encodedParams.append("from", from);
-    encodedParams.append("to", to);
-    encodedParams.append("text", text);
-
     const options = {
         method: 'POST',
-        url: 'https://translo.p.rapidapi.com/api/v3/translate',
         headers: {
-            'content-type': 'application/x-www-form-urlencoded',
+            'content-type': 'application/json',
             'X-RapidAPI-Key': process.env.RAPID_API_KEY,
-            'X-RapidAPI-Host': 'translo.p.rapidapi.com'
+            'X-RapidAPI-Host': process.env.RAPID_API_HOST
         },
-        data: encodedParams
+        body: JSON.stringify({
+            "source": from,
+            "target": to,
+            "text": text
+        })
     };
     try {
-        const result = await axios.request(options)
-        return result.data["translated_text"]
+        const result = await fetch('https://translate-plus.p.rapidapi.com/translate',options)
+        const json = await result.json()
+        return json.translations.translation
     } catch (err) {
         throw `Translate from api failed from ${from} to ${to}`
     }

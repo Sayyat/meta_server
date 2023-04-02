@@ -3,54 +3,53 @@ const {readFileSync, writeFileSync} = require('fs')
 
 const CACHE_PATH = './cache/translations.txt'
 
-function detectLanguage(text, callback, error) {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': process.env.RAPID_API_KEY,
-            'X-RapidAPI-Host': 'translo.p.rapidapi.com'
-        }
-    };
+function detectLanguage(text): Promise<string> {
+    try {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+                'X-RapidAPI-Host': 'translo.p.rapidapi.com'
+            }
+        };
 
-    fetch('https://translo.p.rapidapi.com/api/v3/detect?text=' + text, options)
-        .then(response => response.json())
-        .then(json => {
-            callback(json.lang)
-        })
-        .catch(err => {
-            error("Translator error: Cannot detect language")
-        })
+        return fetch('https://translo.p.rapidapi.com/api/v3/detect?text=' + text, options)
+            .then(response => response.json())
+            .then(json => {
+                return json.lang
+            })
+    } catch (err) {
+        throw "Translator error: Cannot detect language"
+    }
 }
 
-function translate({text, from, to}, callback, error) {
+async function translate(text, from, to): Promise<string> {
     if (from === to) {
-        callback(text)
-        return
+        return text
     }
 
     // check the cache
     const fromCache = translateFromCache(text, from, to)
     if (fromCache) {
-        console.log("Translated from cache")
-        callback(fromCache)
-        return
+        return fromCache
     }
 
-    // translate new sentence
-    translateFromApi(text, from, to)
-        .then(translation => {
-            // save new translation to cache
-            if (translation)
-                saveToCache(text, from, to, translation)
+    try {
+        // translate new sentence
+        return translateFromApi(text, from, to)
+            .then(translation => {
+                // save new translation to cache
+                if (translation)
+                    saveToCache(text, from, to, translation)
 
-            callback(translation)
-        })
-        .catch(err => {
-            error(`Translator error: Cannot translate from ${from} to ${to}`)
-        })
+                return translation
+            })
+    } catch (err) {
+        throw `Translator error: Cannot translate from ${from} to ${to}`
+    }
 }
 
-function translateFromCache(text, from, to) {
+function translateFromCache(text, from, to): string {
     const translationsCache = readFileSync(CACHE_PATH).toString()
     if (!translationsCache.trim())
         return null
@@ -59,7 +58,7 @@ function translateFromCache(text, from, to) {
 }
 
 
-async function translateFromApi(text, from, to) {
+async function translateFromApi(text, from, to): Promise<string> {
     const encodedParams = new URLSearchParams();
     encodedParams.append("from", from);
     encodedParams.append("to", to);
@@ -95,6 +94,6 @@ function saveToCache(text, from, to, translation) {
     json[fromTo][text] = translation
     const str = JSON.stringify(json)
     writeFileSync(CACHE_PATH, Buffer.from(str))
-    console.log("Saved to cache")
 }
-module .exports = {detectLanguage, translate}
+
+module.exports = {detectLanguage, translate}

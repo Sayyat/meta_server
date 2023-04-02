@@ -1,5 +1,5 @@
 const {gpt_3_5} = require("/src/backend/chatgpt")
-const {detectLanguage, translate} = require("src/backend/translator")
+const {detectLanguage, translate} = require("@/backend/translator.ts")
 
 export default async function handler(req, res) {
     // console.log(req)
@@ -7,64 +7,51 @@ export default async function handler(req, res) {
 
     if (typeof body == "string") body = JSON.parse(body)
 
-    let hasError = false
     let {dialogue} = body
-    translateDialogue(dialogue, (async (englishDialogue, languages) => {
-        if (hasError) return
-        const lang = languages[languages.length - 1]
-        console.log("lang: ", lang)
-        const englishAnswer = await gpt_3_5(englishDialogue);
-        console.log(englishAnswer)
-        translateSentence({sentence: englishAnswer.content, from: 'en', to: lang}, nativeAnswer => {
-            console.log({nativeAnswer})
-            if (hasError) return
-            res.status(200).json({role: englishAnswer.role, content: nativeAnswer})
-        }, error => {
-            console.log(error)
+    try {
+        const translations = await translateDialogue(dialogue)
+
+        const englishDialogue = translations.map(message => {
+            return {role: message.role, content: message.content}
         })
-    }), async (error) => {
-        if (hasError) return
-        hasError = true
-        console.log("error: ", error)
-        const answer = await gpt_3_5(dialogue);
-        res.status(200).json({role: answer.role, content: answer.content})
-    })
-}
+        const lang = translations.pop()["lang"]
 
-function translateDialogue(dialogue = [], callback, error) {
-    let translations = []
-    let languages = []
-    let count = dialogue.length
-
-
-    dialogue.forEach((message, i) => {
-        translateMessage(message, (translation) => {
-            console.log({translation})
-            translations[i] = {role: translation?.role, content: translation?.content}
-            languages[i] = translation?.lang
-            count--
-            if (count === 0) {
-                callback(translations, languages)
+        try {
+            const englishAnswer = await gpt_3_5(englishDialogue);
+            try {
+                const nativeAnswer = await translate(englishAnswer.content, 'en', lang)
+                res.status(200).json({role: englishAnswer.role, content: nativeAnswer})
             }
-        }, (err) => {
-            error("simple error: ", err)
-        })
-    })
+            catch (translateError) {
+                console.log(`TranslateDialogueError: ${translateError}`)
+            }
+
+        } catch (gptError) {
+            console.log(`ChatGptError: ${gptError}`)
+        }
+
+    } catch (translateError) {
+        console.log(`TranslateDialogueError: ${translateError}`)
+        try {
+            const answer = await gpt_3_5(dialogue);
+            res.status(200).json({role: answer.role, content: answer.content})
+        }
+        catch (gptError){
+            console.log(`ChatGptError: ${gptError}`)
+        }
+    }
 }
 
-function translateMessage(message = {role: '', content: ''}, callback, error) {
-    console.log("TranslateMessage: ", message)
-    detectLanguage(message.content, (lang) => {
-        translateSentence({sentence: message.content, from: lang}, (translation) => {
-            callback({role: message.role, content: translation, lang: lang})
-        }, err => {
-            error(err)
-        })
-    }, (err) => {
-        error(err)
-    })
+async function translateDialogue(dialogue = []) {
+    let parallelTasks = []
+    for (const message of dialogue) {
+        parallelTasks.push(translateMessage(message))
+    }
+    return Promise.all(parallelTasks)
 }
 
-function translateSentence({sentence = '', from, to = 'en'}, callback, error) {
-    translate(sentence, from, to, (translation) => callback(translation), (err) => error(err))
+async function translateMessage(message = {role: "", content: ""}) {
+    const lang = await detectLanguage(message.content)
+    const translation = await translate(message.content, lang, "en")
+    return {role: message.role, content: translation, lang: lang}
 }

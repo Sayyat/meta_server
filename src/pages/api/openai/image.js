@@ -1,5 +1,5 @@
 import {image} from "/src/backend/chatgpt"
-import {detectLanguage, translate}  from "src/backend/translator";
+import {detectLanguage, translate}  from "@/backend/translator";
 
 export default async function handler(req, res) {
     let body  = req.body

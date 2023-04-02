@@ -7,29 +7,40 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 async function davinci(question) {
-    const rawAnswer = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: question,
-        temperature: 0.9,
-        max_tokens: 2000,
-        top_p: 1,
-        frequency_penalty: 0.0,
-        presence_penalty: 0.6
-    });
+    try {
+        const rawAnswer = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: question,
+            temperature: 0.9,
+            max_tokens: 2000,
+            top_p: 1,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.6
+        });
 
-    return rawAnswer.data.choices[0].text
+        return rawAnswer.data.choices[0].text
+    }
+    catch (error){
+        throw `ChatGPT error: ${error.response.statusText}`
+    }
 }
 
 async function gpt_3_5(dialogue = []) {
-    const rawAnswer = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: dialogue,
-    });
-
-    return rawAnswer.data.choices[0].message
+    try {
+        const rawAnswer = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: dialogue,
+        });
+        return rawAnswer.data.choices[0].message
+    }
+    catch (error){
+        throw `ChatGPT error: ${error.response.statusText}`
+    }
 }
 
 async function image(description, count, size) {
+    try {
+
     size = fixSizes(size)
     console.log({description, count, size})
     return await openai.createImage({
@@ -37,6 +48,10 @@ async function image(description, count, size) {
         n: Math.min(10, count),
         size: size,
     })
+    }
+    catch (error){
+        throw `ChatGPT error: ${error.response.statusText}`
+    }
 }
 
 async function imageVariants(image) {

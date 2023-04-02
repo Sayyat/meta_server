@@ -11,32 +11,27 @@ export default async function handler(req, res) {
     try {
         const translations = await translateDialogue(dialogue)
 
+        console.log(translations)
         const englishDialogue = translations.map(message => {
             return {role: message.role, content: message.content}
         })
         const lang = translations.pop()["lang"]
 
-        try {
-            const englishAnswer = await gpt_3_5(englishDialogue);
-            try {
-                const nativeAnswer = await translate(englishAnswer.content, 'en', lang)
-                res.status(200).json({role: englishAnswer.role, content: nativeAnswer})
-            }
-            catch (translateError) {
-                console.log(`TranslateDialogueError: ${translateError}`)
-            }
+        const englishAnswer = await gpt_3_5(englishDialogue);
+        console.log({englishAnswer})
 
-        } catch (gptError) {
-            console.log(`ChatGptError: ${gptError}`)
-        }
+        const nativeAnswer = await translate(englishAnswer.content, 'en', lang)
+        console.log({nativeAnswer})
+        res.status(200).json({role: englishAnswer.role, content: nativeAnswer})
+
 
     } catch (translateError) {
         console.log(`TranslateDialogueError: ${translateError}`)
         try {
             const answer = await gpt_3_5(dialogue);
+            console.log({answer})
             res.status(200).json({role: answer.role, content: answer.content})
-        }
-        catch (gptError){
+        } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
         }
     }

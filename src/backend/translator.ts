@@ -1,3 +1,5 @@
+import {retail} from "googleapis/build/src/apis/retail";
+
 const axios = require("axios")
 const {readFileSync, writeFileSync} = require('fs')
 
@@ -36,16 +38,15 @@ async function translate(text, from, to): Promise<string> {
 
     try {
         // translate new sentence
-        return translateFromApi(text, from, to)
-            .then(translation => {
-                // save new translation to cache
-                if (translation)
-                    saveToCache(text, from, to, translation)
+        const translation = await translateFromApi(text, from, to)
 
-                return translation
-            })
+        if (translation)
+            saveToCache(text, from, to, translation)
+
+        return translation
+
     } catch (err) {
-        throw `Translator error: Cannot translate from ${from} to ${to}`
+        throw `Translator error: ${err}`
     }
 }
 
@@ -58,7 +59,7 @@ function translateFromCache(text, from, to): string {
 }
 
 
-async function translateFromApi(text, from, to): Promise<string> {
+async function translateFromApi(text, from, to) {
     const encodedParams = new URLSearchParams();
     encodedParams.append("from", from);
     encodedParams.append("to", to);
@@ -74,11 +75,12 @@ async function translateFromApi(text, from, to): Promise<string> {
         },
         data: encodedParams
     };
-
-    return axios.request(options)
-        .then(rawResponse => {
-            return rawResponse.data["translated_text"]
-        })
+    try {
+        const result = await axios.request(options)
+        return result.data["translated_text"]
+    } catch (err) {
+        throw `Translate from api failed from ${from} to ${to}`
+    }
 }
 
 function saveToCache(text, from, to, translation) {

@@ -1,4 +1,5 @@
 const {Configuration, OpenAIApi} = require("openai");
+const {raw} = require("mysql");
 
 const configuration = new Configuration({
     organization: process.env.OPENAI_ORGANIZATION,

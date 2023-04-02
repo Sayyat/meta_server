@@ -63,7 +63,7 @@ function fixSizes(size) {
     return sizes[size]
 }
 
-export {davinci, gpt_3_5, image, imageVariants}
+module .exports = {davinci, gpt_3_5, image, imageVariants}
 
 
 

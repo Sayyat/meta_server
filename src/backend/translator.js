@@ -1,9 +1,9 @@
-import axios from "axios";
-import {readFileSync, writeFileSync} from 'fs'
+const axios = require("axios")
+const {readFileSync, writeFileSync} = require('fs')
 
 const CACHE_PATH = './cache/translations.txt'
 
-async function detectLanguage(text) {
+function detectLanguage(text, callback, error) {
     const options = {
         method: 'GET',
         headers: {
@@ -12,28 +12,42 @@ async function detectLanguage(text) {
         }
     };
 
-    const response = await fetch('https://translo.p.rapidapi.com/api/v3/detect?text=' + text, options)
-    const json = await response.json()
-    return json.lang
+    fetch('https://translo.p.rapidapi.com/api/v3/detect?text=' + text, options)
+        .then(response => response.json())
+        .then(json => {
+            callback(json.lang)
+        })
+        .catch(err => {
+            error("Translator error: Cannot detect language")
+        })
 }
 
-async function translate(text, from, to) {
-    if (from === to)
-        return text
+function translate({text, from, to}, callback, error) {
+    if (from === to) {
+        callback(text)
+        return
+    }
 
     // check the cache
     const fromCache = translateFromCache(text, from, to)
     if (fromCache) {
-        return fromCache
+        console.log("Translated from cache")
+        callback(fromCache)
+        return
     }
 
     // translate new sentence
-    const translation = await translateFromApi(text, from, to);
+    translateFromApi(text, from, to)
+        .then(translation => {
+            // save new translation to cache
+            if (translation)
+                saveToCache(text, from, to, translation)
 
-    // save new translation to cache
-    saveToCache(text, from, to, translation)
-
-    return translation
+            callback(translation)
+        })
+        .catch(err => {
+            error(`Translator error: Cannot translate from ${from} to ${to}`)
+        })
 }
 
 function translateFromCache(text, from, to) {
@@ -56,14 +70,16 @@ async function translateFromApi(text, from, to) {
         url: 'https://translo.p.rapidapi.com/api/v3/translate',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'X-RapidAPI-Key': '831893c4c3msh1321dc4593186e6p1825eejsnccf63a00daa2',
+            'X-RapidAPI-Key': process.env.RAPID_API_KEY,
             'X-RapidAPI-Host': 'translo.p.rapidapi.com'
         },
         data: encodedParams
     };
 
-    const rawResponse = await axios.request(options)
-    return rawResponse.data["translated_text"]
+    return axios.request(options)
+        .then(rawResponse => {
+            return rawResponse.data["translated_text"]
+        })
 }
 
 function saveToCache(text, from, to, translation) {
@@ -79,7 +95,6 @@ function saveToCache(text, from, to, translation) {
     json[fromTo][text] = translation
     const str = JSON.stringify(json)
     writeFileSync(CACHE_PATH, Buffer.from(str))
+    console.log("Saved to cache")
 }
-
-
-export {detectLanguage, translate}
+module .exports = {detectLanguage, translate}

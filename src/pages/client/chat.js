@@ -5,7 +5,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 export default function Chat() {
     const [dialogue, setDialogue] = useState([])
-    const [question, setQuestion] = useState('')
+    const [question, setQuestion] = useState('Сен қазақша түсінесің бе')
     const [addition, setAddition] = useState('')
     const [answer, setAnswer] = useState('')
 

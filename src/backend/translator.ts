@@ -1,33 +1,28 @@
-import {retail} from "googleapis/build/src/apis/retail";
-
-const axios = require("axios")
 const {readFileSync, writeFileSync} = require('fs')
 
-const CACHE_PATH = './cache/translations.txt'
+const CACHE_PATH_TRANSLATIONS = './cache/translations.txt'
+const CACHE_PATH_DETECTIONS = './cache/detections.txt'
 
-function detectLanguage(text): Promise<string> {
+async function detectLanguage(text): Promise<string> {
+    // check the cache
+    const fromCache = detectFromCache(text)
+    if (fromCache) {
+        console.log("Detected from cache")
+        return fromCache
+    }
+
     try {
-        const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'X-RapidAPI-Key': process.env.RAPID_API_KEY,
-                'X-RapidAPI-Host': process.env.RAPID_API_HOST
-            },
-            body: JSON.stringify({
-                text: text
-            })
-        };
+        const detection = await detectFromApi(text)
 
-        return fetch('https://translate-plus.p.rapidapi.com/language_detect', options)
-            .then(response => response.json())
-            .then(json => {
-                return json.language_detection.language
-            })
+        console.log("Detected from api")
+        if (detection)
+            saveDetectionToCache(text, detection)
+        return detection
     } catch (err) {
-        throw "Translator error: Cannot detect language"
+        throw `Detection error: ${err}`
     }
 }
+
 
 async function translate(text, from, to): Promise<string> {
     if (from === to) {
@@ -43,10 +38,8 @@ async function translate(text, from, to): Promise<string> {
     try {
         // translate new sentence
         const translation = await translateFromApi(text, from, to)
-
         if (translation)
-            saveToCache(text, from, to, translation)
-
+            saveTranslationToCache(text, from, to, translation)
         return translation
 
     } catch (err) {
@@ -54,14 +47,52 @@ async function translate(text, from, to): Promise<string> {
     }
 }
 
+function detectFromCache(text): string {
+    const detectionsCache = readFileSync(CACHE_PATH_DETECTIONS).toString()
+    if (!detectionsCache.trim())
+        return null
+    const json = JSON.parse(detectionsCache)
+
+    for (let lang in json) {
+        if (Array.isArray(json[lang]) && json[lang].includes(text))
+            return lang
+    }
+    return null
+}
+
+
 function translateFromCache(text, from, to): string {
-    const translationsCache = readFileSync(CACHE_PATH).toString()
+    const translationsCache = readFileSync(CACHE_PATH_TRANSLATIONS).toString()
     if (!translationsCache.trim())
         return null
     const json = JSON.parse(translationsCache)
     return json && json[`${from}-${to}`] && json[`${from}-${to}`][text]
 }
 
+
+async function detectFromApi(text) {
+    const options = {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+            'X-RapidAPI-Host': process.env.RAPID_API_HOST
+        },
+        body: JSON.stringify({
+            text: text
+        })
+    };
+
+    return fetch('https://translate-plus.p.rapidapi.com/language_detect', options)
+        .then(response => response.json())
+        .then(json => {
+            return json.language_detection.language
+        })
+        .catch(error => {
+            throw "Detect from api failed"
+        })
+
+}
 
 async function translateFromApi(text, from, to) {
     const options = {
@@ -78,7 +109,7 @@ async function translateFromApi(text, from, to) {
         })
     };
     try {
-        const result = await fetch('https://translate-plus.p.rapidapi.com/translate',options)
+        const result = await fetch('https://translate-plus.p.rapidapi.com/translate', options)
         const json = await result.json()
         return json.translations.translation
     } catch (err) {
@@ -86,8 +117,21 @@ async function translateFromApi(text, from, to) {
     }
 }
 
-function saveToCache(text, from, to, translation) {
-    const translationsCache = readFileSync(CACHE_PATH).toString()
+function saveDetectionToCache(text, lang) {
+    const detectionsCache = readFileSync(CACHE_PATH_DETECTIONS).toString()
+    let json = {}
+    if (detectionsCache.trim())
+        json = JSON.parse(detectionsCache)
+
+    if (!json[lang])
+        json[lang] = []
+    json[lang].push(text)
+    const str = JSON.stringify(json)
+    writeFileSync(CACHE_PATH_DETECTIONS, Buffer.from(str))
+}
+
+function saveTranslationToCache(text, from, to, translation) {
+    const translationsCache = readFileSync(CACHE_PATH_TRANSLATIONS).toString()
     let json = {}
     if (translationsCache.trim())
         json = JSON.parse(translationsCache)
@@ -98,7 +142,7 @@ function saveToCache(text, from, to, translation) {
 
     json[fromTo][text] = translation
     const str = JSON.stringify(json)
-    writeFileSync(CACHE_PATH, Buffer.from(str))
+    writeFileSync(CACHE_PATH_TRANSLATIONS, Buffer.from(str))
 }
 
 module.exports = {detectLanguage, translate}

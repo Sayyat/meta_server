@@ -8,6 +8,10 @@ export default async function handler(req, res) {
     if (typeof body == "string") body = JSON.parse(body)
 
     let {dialogue} = body
+
+    // request from unity sends array like string
+    if (typeof dialogue == "string") dialogue = JSON.parse(dialogue)
+
     try {
         const translations = await translateDialogue(dialogue)
 

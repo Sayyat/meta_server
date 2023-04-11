@@ -22,9 +22,10 @@ export default async function handler(req, res) {
         const lang = translations.pop()["lang"]
         console.log({lang})
         const englishAnswer = await gpt_3_5(englishDialogue);
-        console.log({englishAnswer})
+        const filteredAnswer = filterAnswer(englishDialogue, englishAnswer.content)
+        console.log({filteredAnswer})
 
-        const nativeAnswer = await translate(englishAnswer.content, 'en', lang)
+        const nativeAnswer = await translate(filteredAnswer, 'en', lang)
         console.log({nativeAnswer})
         res.status(200).json({role: englishAnswer.role, content: nativeAnswer})
 
@@ -34,7 +35,7 @@ export default async function handler(req, res) {
         try {
             const answer = await gpt_3_5(dialogue);
             console.log({answer})
-            res.status(200).json({role: answer.role, content: answer.content})
+            res.status(200).json({role: answer.role, content: filterAnswer(dialogue, answer.content)})
         } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
         }
@@ -53,4 +54,17 @@ async function translateMessage(message = {role: "", content: ""}) {
     const lang = await detectLanguage(message.content)
     const translation = await translate(message.content, lang, "en")
     return {role: message.role, content: translation, lang: lang}
+}
+
+
+function filterAnswer(dialogue, answer) {
+    const last = dialogue.pop()
+    const logic = last.content.match(/(GPT)|(gpt)|([Oo]pen[Aa][Ii])/gm)
+    console.log({last, logic})
+    if (!logic)
+        answer = answer.replace(/[Oo]pen[Aa][Ii]/gm, "ZIZ inc")
+            .replace(/([Cc]{1}hat)?(GPT)-?[\d]?/gm, "Aisha")
+            .replace("(Generative Pre-trained Transformer 3)", "")
+            .replace("(Generative Pre-trained Transformer)", "")
+    return answer
 }

@@ -16,19 +16,18 @@ export default async function handler(req, res) {
         id: result.id.toString(),
         email: email,
         firstname: given_name,
-        nickname: result.nickname,
+        lastname: family_name,
         walletData: {
             address: result.walletAddress,
             balance: result.walletBalance,
             chainId: result.walletChainId
         },
-        avatarUrl: result.avatarUrl,
+        avatarUrl: result.avatarUrl || picture,
         imageBytes: ''
     }
-
     console.log(newData)
 
-    loadImage(picture, (imageBytes) => {
+    loadImage(newData.avatarUrl, (imageBytes) => {
         const {token} = req.query
         newData.imageBytes = imageBytes
         fs.writeFileSync(`./${token}.txt`, JSON.stringify(newData))

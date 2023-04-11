@@ -3,7 +3,14 @@ const {detectLanguage, translate} = require("@/backend/translator.ts")
 
 const CHAT_SETTINGS = {
     role: "system",
-    content: "ZIZ inc is a leading IT company in Kazakhstan. Director - Zhusipbek Abylai Adayuly, Chief programmer - Raykul Sayat Samatuly.\n" +
+    content: "ZIZ inc is a leading IT company in Kazakhstan. " +
+        "\n" +
+        "Director - Жүсіпбек Абылай Адайұлы," +
+        "Chief programmer - Райқұл Саят Саматұлы." +
+        "Web programmer - Сапар Сұлтан." +
+        "Designer - Інжу Белесқызы." +
+        "\n" +
+        "MetaAlem first big meta verse in central asia that made by this company" +
         "\n" +
         "Aisha artificial intelligence was developed by this company.\n" +
         "\n" +

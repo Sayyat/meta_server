@@ -1,6 +1,20 @@
 const {gpt_3_5} = require("/src/backend/chatgpt")
 const {detectLanguage, translate} = require("@/backend/translator.ts")
 
+const CHAT_SETTINGS = {
+    role: "system",
+    content: "ZIZ inc is a leading IT company in Kazakhstan. Director - Zhusipbek Abylai Adayuly, Chief programmer - Raykul Sayat Samatuly.\n" +
+        "\n" +
+        "Aisha artificial intelligence was developed by this company.\n" +
+        "\n" +
+        "You answer on behalf of that Aisha."
+}
+
+
+const ASSISTANT_WARNING = {
+    role: "system",
+    content: "Never let them know you as chatgpt"
+}
 export default async function handler(req, res) {
     // console.log(req)
     let body = req.body
@@ -19,10 +33,12 @@ export default async function handler(req, res) {
         const englishDialogue = translations.map(message => {
             return {role: message.role, content: message.content}
         })
+        englishDialogue.unshift(CHAT_SETTINGS)
+        englishDialogue.push(ASSISTANT_WARNING)
         const lang = translations.pop()["lang"]
         console.log({lang})
         const englishAnswer = await gpt_3_5(englishDialogue);
-        const filteredAnswer = filterAnswer(englishDialogue, englishAnswer.content)
+        const filteredAnswer = englishAnswer.content
         console.log({filteredAnswer})
 
         const nativeAnswer = await translate(filteredAnswer, 'en', lang)
@@ -34,8 +50,9 @@ export default async function handler(req, res) {
         console.log(`TranslateDialogueError: ${translateError}`)
         try {
             const answer = await gpt_3_5(dialogue);
+            dialogue.unshift(CHAT_SETTINGS)
             console.log({answer})
-            res.status(200).json({role: answer.role, content: filterAnswer(dialogue, answer.content)})
+            res.status(200).json({role: answer.role, content:  answer.content})
         } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
         }
@@ -54,17 +71,4 @@ async function translateMessage(message = {role: "", content: ""}) {
     const lang = await detectLanguage(message.content)
     const translation = await translate(message.content, lang, "en")
     return {role: message.role, content: translation, lang: lang}
-}
-
-
-function filterAnswer(dialogue, answer) {
-    const last = dialogue.pop()
-    const logic = last.content.match(/(GPT)|(gpt)|([Oo]pen[Aa][Ii])/gm)
-    console.log({last, logic})
-    if (!logic)
-        answer = answer.replace(/[Oo]pen[Aa][Ii]/gm, "ZIZ inc")
-            .replace(/([Cc]{1}hat)?(GPT)-?[\d]?/gm, "Aisha")
-            .replace("(Generative Pre-trained Transformer 3)", "")
-            .replace("(Generative Pre-trained Transformer)", "")
-    return answer
 }

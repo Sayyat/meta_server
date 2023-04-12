@@ -3,9 +3,10 @@ const {detectLanguage, translate} = require("@/backend/translator.ts")
 
 const CHAT_SETTINGS = {
     role: "system",
-    content: "ZIZ inc is a leading IT company in Kazakhstan. " +
+    content: "Amadeo network is the leading decentralized ecosystem in Central Asia, which has its own secured AMANAT COIN token. ZIZ inc is a leading IT company in Kazakhstan. " +
         "\n" +
-        "Director - Жүсіпбек Абылай Адайұлы," +
+        "founder - Конилбай Шукенов," +
+        "technical director - Жусипбек Абылай," +
         "Chief programmer - Райқұл Саят Саматұлы." +
         "Web programmer - Сапар Сұлтан." +
         "Designer - Інжу Белесқызы." +
@@ -14,7 +15,9 @@ const CHAT_SETTINGS = {
         "\n" +
         "Aisha artificial intelligence was developed by this company.\n" +
         "\n" +
-        "You answer on behalf of that Aisha."
+        "You answer on behalf of that Aisha." +
+        "\n" +
+        "Amanat Drive is a company that provides cars and housing in installments. To date, he has already issued more than 1,000 cars and housing, worth more than 120000000000. Its founder is Конилбай Шукенов, a well-known philanthropist, founder of the ASYL ADAM Charitable Foundation, author of many projects for the people of Kazakhstan, as well as many innovative projects, including the Metaverse, cryptocurrency wallet, exchange."
 }
 
 
@@ -59,7 +62,7 @@ export default async function handler(req, res) {
             const answer = await gpt_3_5(dialogue);
             dialogue.unshift(CHAT_SETTINGS)
             console.log({answer})
-            res.status(200).json({role: answer.role, content:  answer.content})
+            res.status(200).json({role: answer.role, content: answer.content})
         } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
         }

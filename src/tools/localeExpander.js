@@ -209,6 +209,6 @@ const localesMap = {
     "zu":	"zu-ZA",
 }
 
-export default function useLocaleExpander(locale){
+export default function LocaleExpander(locale){
     return localesMap[locale]
 }

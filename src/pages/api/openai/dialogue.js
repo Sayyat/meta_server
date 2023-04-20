@@ -1,5 +1,5 @@
 import {tts} from "@/backend/ttsfree";
-import useLocaleExpander from "@/hooks/lcaleExpander";
+import LocaleExpander from "@/tools/localeExpander";
 
 const {gpt_3_5} = require("/src/backend/chatgpt")
 const {detectLanguage, translate} = require("@/backend/translator.ts")
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
 
         const nativeAnswer = await translate(filteredAnswer, 'en', lang)
         console.log({nativeAnswer})
-        const expanded = useLocaleExpander(lang);
+        const expanded = LocaleExpander(lang);
         console.log(expanded)
         const response = await tts(nativeAnswer, expanded)
         console.log(response)

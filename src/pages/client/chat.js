@@ -6,6 +6,7 @@ import {Col, Container, Row} from "react-bootstrap";
 export default function Chat() {
     const [dialogue, setDialogue] = useState([])
     const [question, setQuestion] = useState('Сен қазақша түсінесің бе')
+    const [mp3, setMp3] = useState('')
     const [addition, setAddition] = useState('')
     const [answer, setAnswer] = useState('')
 
@@ -17,7 +18,9 @@ export default function Chat() {
             body: JSON.stringify({dialogue: dialogue})
         }).then((response => response.json()))
             .then((result) => {
-                setDialogue([...dialogue, result])
+                setDialogue([...dialogue, result.text])
+                const b64 = result.audio["audioData"]
+                setMp3(b64)
             })
     }
 
@@ -58,7 +61,8 @@ export default function Chat() {
                     })
                 }
 
-
+                {mp3 && <audio controls src={`data:audio/wav;base64,${mp3}`} autoPlay={true}>
+                </audio>}
             </Container>
         </>
     )

@@ -18,6 +18,7 @@ export default function Chat() {
             body: JSON.stringify({dialogue: dialogue})
         }).then((response => response.json()))
             .then((result) => {
+                console.log(result)
                 setDialogue([...dialogue, result.text])
                 const b64 = result.audio["audioData"]
                 setMp3(b64)

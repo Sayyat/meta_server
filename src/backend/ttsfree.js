@@ -11,8 +11,9 @@ async function tts(text, lang) {
             "voiceID": lang,
         })
     })
-
-    return await response.json()
+    const json = await response.json()
+    console.log(json)
+    return json
 }
 
 
@@ -228,6 +229,7 @@ const localesMap = {
 }
 
 function LocaleExpander(locale) {
+    console.log({short: locale, long: localesMap[locale]})
     return localesMap[locale]
 }
 

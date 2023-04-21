@@ -63,7 +63,7 @@ export default async function handler(req, res) {
             const answer = await gpt_3_5(dialogue);
             dialogue.unshift(CHAT_SETTINGS)
             console.log({answer})
-            res.status(200).json({role: answer.role, content: answer.content})
+            res.status(200).json({text:{role: answer.role, content: answer}, audio: null})
         } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
         }

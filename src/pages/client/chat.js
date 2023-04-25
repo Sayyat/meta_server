@@ -62,7 +62,7 @@ export default function Chat() {
                     })
                 }
 
-                <audio controls src={`data:audio/wav;base64,${mp3}`} autoPlay={true}>
+                <audio controls src={`data:audio/mp3;base64,${mp3}`} autoPlay={true}>
                 </audio>
             </Container>
         </>

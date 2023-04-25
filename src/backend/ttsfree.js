@@ -207,7 +207,7 @@ const localesMap = {
     "pt": "pt-BR",
     "pa": "pa-IN",
     "ro": "ro-RO",
-    "ru": "ru-RU",
+    "ru": "ru-RU2",
     "sr": "sr-BA",
     "sk": "sk-SK",
     "sl": "sk-SK",

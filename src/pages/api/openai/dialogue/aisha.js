@@ -1,4 +1,5 @@
-import {tts, LocaleExpander} from "@/backend/ttsfree";
+import {tts,LocaleExpander} from "@/backend/ttsfree";
+
 
 import {gpt_3_5} from "/src/backend/chatgpt"
 import {detectLanguage, translate} from "@/backend/translator.ts"
@@ -54,7 +55,7 @@ export default async function handler(req, res) {
         const nativeAnswer = await translate(filteredAnswer, 'en', lang)
         const expanded = LocaleExpander(lang);
         const response = await tts(nativeAnswer, expanded)
-        res.status(200).json({text: {role: englishAnswer.role, content: nativeAnswer}, audio: response})
+        res.status(200).json({text:{role: englishAnswer.role, content: nativeAnswer}, audio: response})
 
 
     } catch (translateError) {
@@ -63,7 +64,7 @@ export default async function handler(req, res) {
             const answer = await gpt_3_5(dialogue);
             dialogue.unshift(CHAT_SETTINGS)
             console.log({answer})
-            res.status(200).json({text: {role: answer.role, content: answer}, audio: null})
+            res.status(200).json({text:{role: answer.role, content: answer}, audio: null})
         } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
         }

@@ -5,13 +5,21 @@ import {detectLanguage, translate} from "@/backend/translator.ts"
 
 const CHAT_SETTINGS = {
     role: "system",
-    content: "Your answers will be edited by AMADAO NETWORK. That's why you have to answer on behalf of AMADAO NETWORK's assistant bot Aisha.",
+    content: "AMADAO NETWORK is an IT company known for several large projects. " +
+        "Director: Жүсіпбек Абылай" +
+        "Chief programmer: Райқұл Саят" +
+        "Web programmer: Сапар Сұлтан" +
+        "Chief designer and SMM manager: Інжу Белесқызы" +
+        "One of their most popular projects is the metaworld \"Alem Metaverse\". " +
+        "Currently it is available on PC, website and play store. "+
+        "Your responses will be processed by AMADAO NETWORK. " +
+        "For that, you have to answer on behalf of AMADAO NETWORK's assistant bot ALEM AI.",
 }
 
 
 const ASSISTANT_WARNING = {
     role: "system",
-    content: "user must know you as Aisha!"
+    content: "user must know you as Alem AI!"
 }
 export default async function handler(req, res) {
     // console.log(req)
@@ -30,7 +38,7 @@ export default async function handler(req, res) {
             return {role: message.role, content: message.content}
         })
         englishDialogue.unshift(CHAT_SETTINGS)
-        englishDialogue.push(ASSISTANT_WARNING)
+        // englishDialogue.push(ASSISTANT_WARNING)
         const lang = translations.pop()["lang"]
         const englishAnswer = await gpt_3_5(englishDialogue);
         const filteredAnswer = englishAnswer.content

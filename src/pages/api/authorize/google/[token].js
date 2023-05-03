@@ -1,6 +1,6 @@
 import fs from "fs";
 import jwtDecode from "jwt-decode";
-import {loginGoogle} from "../../database/auth";
+import {loginGoogle} from "@/backend/database/auth";
 
 export default async function handler(req, res) {
     // get important userdata

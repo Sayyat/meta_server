@@ -1,4 +1,4 @@
-import {loginGoogle} from "../../database/auth";
+import {loginGoogle} from "@/backend/database/auth";
 
 export default async function handler(req, res) {
     if (req.method == "POST") {

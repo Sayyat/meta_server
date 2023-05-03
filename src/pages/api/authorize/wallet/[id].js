@@ -1,5 +1,5 @@
 import fs from "fs";
-import {addMetamask} from "@/pages/api/database/auth";
+import {addMetamask} from "@/backend/database/auth";
 
 export default async function handler(req, res) {
     // get important userdata

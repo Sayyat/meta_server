@@ -1,4 +1,4 @@
-import conversation from "@/backend/conversation";
+import {conversation} from "@/backend/conversation";
 
 const CHAT_SETTINGS = {
     role: "system",

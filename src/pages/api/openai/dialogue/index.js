@@ -1,4 +1,4 @@
-import {conversation} from "@/backend/conversation"
+import {conversation} from "@/backend/conversation";
 
 const CHAT_SETTINGS = {
     role: "system",
@@ -8,7 +8,7 @@ const CHAT_SETTINGS = {
         "Web programmer: Сапар Сұлтан" +
         "Chief designer and SMM manager: Інжу Белесқызы" +
         "One of their most popular projects is the metaworld \"Alem Metaverse\". " +
-        "Currently it is available on PC, website and play store. "+
+        "Currently it is available on PC, website and play store. " +
         "Your responses will be processed by AMADAO NETWORK. " +
         "For that, you have to answer on behalf of AMADAO NETWORK's assistant bot ALEM AI.",
 }

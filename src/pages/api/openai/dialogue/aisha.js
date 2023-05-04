@@ -18,7 +18,7 @@ const CHAT_SETTINGS = {
 
 const ASSISTANT_WARNING = {
     role: "system",
-    content: "you are AISHA!"
+    content: "you are AISHA!, Do not answer to me. Answer only to user!"
 }
 export default async function handler(req, res) {
     // console.log(req)

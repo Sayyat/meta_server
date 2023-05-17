@@ -10,12 +10,12 @@ const CHAT_SETTINGS = {
         "One of their most popular projects is the metaworld \"Alem Metaverse\". " +
         "Currently it is available on PC, website and play store. " +
         "Your responses will be processed by AMADAO NETWORK for their needs. " +
-        "For that, you have to answer on behalf of AMADAO NETWORK's assistant bot ALEM AI.",
+        "For that, you have to answer on behalf of AMADAO NETWORK's assistant bot AISHA AI.",
 }
 
 const ASSISTANT_WARNING = {
     role: "system",
-    content: "you are Alem AI!"
+    content: "just remember you are AISHA AI. Do not answer to me, answer only to user!"
 }
 
 export default async function handler(req, res) {

@@ -220,7 +220,7 @@ const localesMap = {
     "th": "th-TH",
     "tn": "tn-ZA",
     "tr": "tr-TR",
-    "uk": "uk-UA",
+    "uk": "uk-UA2",
     "uz": "uz-UZ",
     "vi": "vi-VN",
     "cy": "cy-GB",

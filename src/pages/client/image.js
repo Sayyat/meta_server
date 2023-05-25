@@ -1,48 +1,105 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Form from "react-bootstrap/Form";
 import {Button, Col, Container, Row} from "react-bootstrap";
 
 export default function ImageGenerator() {
     const [description, setDescription] = useState('')
-    const [size, setSize] = useState('256')
-    const [count, setCount] = useState(4)
-    const [urls, setUrls] = useState([])
+    const [ratio, setRatio] = useState('1x1')
+    const [styles, setStyles] = useState([])
+    const [style, setStyle] = useState(79)
+    const [url, setUrl] = useState(null)
 
-    function ask() {
-        fetch("/api/openai/image", {
+    const RATIOS = [
+        "1x1",
+        "1x2",
+        "2x1",
+        "2x3",
+        "3x2",
+        "3x4",
+        "4x3",
+        "3x5",
+        "5x3",
+        "9x16",
+        "16x9",
+        "10x16",
+        "16x10",
+        "9x19",
+        "19x9",
+        "9x20",
+        "20x9",
+    ]
+
+    useEffect(() => {
+        loadStyles()
+    }, [])
+
+    async function loadStyles(){
+        const response = await fetch("/api/dream/styles")
+        const result = await response.json()
+        setStyles(result)
+    }
+
+    function handleStyleSelect(event){
+        event.preventDefault()
+        setStyle(event.target.value)
+    }
+
+    function handleRatioSelect(event){
+        event.preventDefault()
+        setRatio(event.target.value)
+    }
+
+    function generate() {
+        fetch("/api/dream/generate", {
             method: "post",
-            headers:{
-
-            },
+            headers: {},
             body: JSON.stringify({
                 description: description,
-                size: size,
-                count: count
+                style: style,
+                ratio: ratio
             })
         }).then((response => response.json()))
             .then((result) => {
-                setUrls(result)
-                console.log(urls)
+                console.log(result.result)
+                setUrl(result.result)
             })
     }
 
     function changeDescription(e) {
         e.preventDefault()
         setDescription(e.target.value)
-        console.log(description)
     }
 
-    function changeCount(e) {
+    function changeStyle(e) {
         e.preventDefault()
-
-        setCount(e.target.value)
-        console.log(description)
+        setStyle(e.target.value)
     }
 
 
     return (
         <>
             <Container>
+                <Row>
+                    <Col>
+                        <select name="styleSelect" id="styleSelect" onChange={handleStyleSelect}>
+                            {styles.map(style => (
+                                <option key={`style_${style.id}`} value={style.id}>
+                                    {style.name}
+                                </option>
+                            ))}
+                        </select>
+                    </Col>
+
+                    <Col>
+                        <select name="ratioSelect" id="ratioSelect" onChange={handleRatioSelect}>
+                            {RATIOS.map((ratio, index) => (
+                                <option key={`style_${index}`} value={ratio}>
+                                    {ratio}
+                                </option>
+                            ))}
+                        </select>
+                    </Col>
+                </Row>
                 <Row>
                     <Form>
                         <Form.Label htmlFor="description">Описание</Form.Label>
@@ -57,23 +114,14 @@ export default function ImageGenerator() {
                 <Row>
 
                     <Button
-                        onClick={ask}>
+                        onClick={generate}>
                         Сгенерировать
                     </Button>
                 </Row>
                 <Row>
                     <div>
-                        <Row>
-                            {
-                                urls.map((url, index) => (
-                                    <Col className={"col-3"} key={index}>
-                                        <img className={"img-fluid"} src={url.url} alt={"" + index}/>
-                                    </Col>
-                                ))
-                            }
-                        </Row>
+                        <img className={"img-fluid"} src={url} alt={"image"}/>
                     </div>
-
                 </Row>
             </Container>
         </>

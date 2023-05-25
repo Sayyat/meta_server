@@ -60,7 +60,7 @@ export default function ImageGenerator() {
             })
         }).then((response => response.json()))
             .then((result) => {
-                console.log(result.result)
+                console.log(result)
                 setUrl(result.result)
             })
     }

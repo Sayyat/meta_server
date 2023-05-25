@@ -1,8 +1,8 @@
 const axios = require('axios');
-const FormData = require('form-data');
 const styles = require("./styles.json")
+const {detectLanguage, translate} = require("@/backend/translator");
 
-const dreamApiKey = process.env.DREAM_API_KEY || "u0DOb40tPa551kuAqPwvynVpybsskIMh"
+const dreamApiKey = process.env.DREAM_API_KEY
 
 const BASE_URL = 'https://api.luan.tools/api/tasks/';
 // const STYLES_URL = "https://api.luan.tools/api/styles/"
@@ -15,6 +15,15 @@ const headers = {
 }
 const RATIO_MEAN = 1000
 
+async function translatePrompt(prompt){
+    try {
+        const lang = await detectLanguage(prompt)
+        prompt = await translate(prompt, lang, "en")
+    } catch (error){
+        console.log(error)
+    }
+    return prompt
+}
 
 function calculateWidthAndHeight(ratio = "1x1") {
     let [w, h] = ratio.split("x")
@@ -35,11 +44,17 @@ async function generateId() {
 async function editImage(taskUrl, styleId, prompt, width, height) {
     const put_payload = {
         'input_spec': {
-            'style': styleId,
             'prompt': prompt,
-            'target_image_weight': 0.3,
+            'style': styleId,
+            'height': height,
             'width': width,
-            'height': height
+            'target_image_weight': 0.3,
+            'has_watermark': false,
+            'allow_nsfw': false,
+            'steps': 100,
+            'negative_prompt': null,
+            'text_cfg': 7.5,
+            'seed': null
         }
     }
     await axios.put(taskUrl, JSON.stringify(put_payload), headers).catch(error => console.log(error.response));
@@ -49,7 +64,7 @@ async function waitUntilReady(taskUrl) {
     let state = "generating"
     while (state === "generating") {
         const get_response = await axios.get(taskUrl, headers).catch(error => console.log(error.response));
-        state = get_response.data.state
+        state = get_response?.data?.state
         if (state === "failed") {
             return null
         } else if (state === "completed") {
@@ -59,10 +74,13 @@ async function waitUntilReady(taskUrl) {
     }
 }
 
-async function generateImage(styleId, prompt, ratio) {
+async function generateImage(taskId, styleId, prompt, ratio) {
     const {width, height} = calculateWidthAndHeight(ratio)
-    const taskId = await generateId()
+    taskId = taskId? taskId : await generateId()
     const taskUrl = BASE_URL + taskId
+    console.log({prompt})
+    prompt = await translatePrompt(prompt)
+    console.log({prompt})
     await editImage(taskUrl, styleId, prompt, width, height)
     return await waitUntilReady(taskUrl)
 }

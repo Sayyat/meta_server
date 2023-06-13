@@ -61,12 +61,12 @@ async function editImage(taskUrl, styleId, prompt, width, height) {
 }
 
 async function waitUntilReady(taskUrl) {
-    let state = "generating"
-    while (state === "generating") {
+    let state
+    while (true) {
         const get_response = await axios.get(taskUrl, headers).catch(error => console.log(error.response));
         state = get_response?.data?.state
         if (state === "failed") {
-            return null
+            return undefined
         } else if (state === "completed") {
             return get_response.data;
         }
@@ -75,12 +75,13 @@ async function waitUntilReady(taskUrl) {
 }
 
 async function generateImage(taskId, styleId, prompt, ratio) {
+    console.log({taskId, styleId, prompt, ratio})
     const {width, height} = calculateWidthAndHeight(ratio)
-    taskId = taskId? taskId : await generateId()
+    taskId = taskId ? taskId : await generateId()
     const taskUrl = BASE_URL + taskId
-    console.log({prompt})
+    // console.log({prompt})
     prompt = await translatePrompt(prompt)
-    console.log({prompt})
+    // console.log({prompt})
     await editImage(taskUrl, styleId, prompt, width, height)
     return await waitUntilReady(taskUrl)
 }

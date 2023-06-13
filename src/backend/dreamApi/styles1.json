@@ -1,0 +1,1042 @@
+[
+  {
+    "id": 84,
+    "name": "Buliojourney v2",
+    "is_visible": true,
+    "created_at": "2023-02-14T17:29:50.526085+00:00",
+    "updated_at": "2023-02-14T17:29:50.526085+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/buliojourney_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 96,
+    "name": "The Bulio Cut",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/the_cut_bulio.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 92,
+    "name": "Spectral v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/spectralv2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 79,
+    "name": "VFX v2",
+    "is_visible": true,
+    "created_at": "2023-02-14T17:17:20.701241+00:00",
+    "updated_at": "2023-02-14T17:17:20.701241+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vfxv2_thumbnail.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 107,
+    "name": "Horror v2",
+    "is_visible": true,
+    "created_at": "2023-05-19T16:47:01.679593+00:00",
+    "updated_at": "2028-12-15T12:00:10+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/horror_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 105,
+    "name": "Poster Art",
+    "is_visible": true,
+    "created_at": "2023-05-06T19:35:25.642357+00:00",
+    "updated_at": "2028-11-27T12:00:10+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/poster_art.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 106,
+    "name": "Figure v2",
+    "is_visible": true,
+    "created_at": "2023-05-12T22:37:21.485602+00:00",
+    "updated_at": "2028-12-18T12:00:10+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/figure_v2.2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 93,
+    "name": "Spring v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/spring.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 68,
+    "name": "Flora",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/flora.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 27,
+    "name": "Psychedelic",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/lisa.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 28,
+    "name": "Ghibli",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/ghibli.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 1,
+    "name": "Synthwave",
+    "is_visible": true,
+    "created_at": "2021-10-11T17:55:51.462768+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/synthwave.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 2,
+    "name": "Ukiyoe",
+    "is_visible": true,
+    "created_at": "2021-10-11T17:56:22.084836+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/ukiyoe.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 3,
+    "name": "No Style",
+    "is_visible": true,
+    "created_at": "2021-10-12T19:08:51.884459+00:00",
+    "updated_at": "2021-12-03T00:57:42.643014+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/no-style-1.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 4,
+    "name": "Steampunk",
+    "is_visible": true,
+    "created_at": "2021-10-12T19:10:20.201107+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/steampunk.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 5,
+    "name": "Fantasy Art",
+    "is_visible": true,
+    "created_at": "2021-10-12T19:11:00.892700+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/fantasy-art.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 6,
+    "name": "Vibrant",
+    "is_visible": true,
+    "created_at": "2021-10-12T19:12:56.385600+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vibrant.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 7,
+    "name": "HD",
+    "is_visible": true,
+    "created_at": "2021-10-12T19:13:23.239102+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/hd.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 8,
+    "name": "Pastel",
+    "is_visible": true,
+    "created_at": "2021-10-12T19:13:37.765967+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/pastel.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 9,
+    "name": "Psychic",
+    "is_visible": true,
+    "created_at": "2021-10-12T19:13:52.463282+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/psychic-dystopia.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 10,
+    "name": "Dark Fantasy",
+    "is_visible": true,
+    "created_at": "2021-10-13T20:41:45.269258+00:00",
+    "updated_at": "2021-12-03T00:57:10.269924+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/dark-fantasy.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 11,
+    "name": "Mystical",
+    "is_visible": true,
+    "created_at": "2021-12-03T00:55:35.554480+00:00",
+    "updated_at": "2021-12-03T00:55:35.554480+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/mystical_2.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 12,
+    "name": "Festive",
+    "is_visible": true,
+    "created_at": "2021-12-03T00:55:35.554480+00:00",
+    "updated_at": "2021-12-03T00:55:35.554480+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/festive.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 13,
+    "name": "Baroque",
+    "is_visible": true,
+    "created_at": "2021-12-17T03:41:27.859971+00:00",
+    "updated_at": "2021-12-17T03:41:27.859971+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/budha.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 14,
+    "name": "Etching",
+    "is_visible": true,
+    "created_at": "2021-12-17T03:41:27.859971+00:00",
+    "updated_at": "2021-12-17T03:41:27.859971+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/etching_tn.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 15,
+    "name": "S.Dali",
+    "is_visible": true,
+    "created_at": "2022-01-07T03:36:37.058860+00:00",
+    "updated_at": "2022-01-07T03:36:37.058860+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/salvador.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 16,
+    "name": "Wuhtercuhler",
+    "is_visible": true,
+    "created_at": "2022-01-07T03:36:37.058860+00:00",
+    "updated_at": "2022-01-07T03:36:37.058860+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/watercolor.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 17,
+    "name": "Realistic",
+    "is_visible": true,
+    "created_at": "2022-07-11T19:54:30.026295+00:00",
+    "updated_at": "2022-07-11T19:54:30.026295+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/realistic.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 18,
+    "name": "Van Gogh",
+    "is_visible": true,
+    "created_at": "2022-07-24T17:14:06.667599+00:00",
+    "updated_at": "2022-07-24T17:14:06.667599+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vangogh.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 19,
+    "name": "Throwback",
+    "is_visible": true,
+    "created_at": "2022-07-24T17:14:06.667599+00:00",
+    "updated_at": "2022-07-24T17:14:06.667599+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/throwback.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 20,
+    "name": "Ink",
+    "is_visible": true,
+    "created_at": "2022-07-24T17:14:06.667599+00:00",
+    "updated_at": "2022-07-24T17:14:06.667599+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/ink.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 22,
+    "name": "Meme",
+    "is_visible": true,
+    "created_at": "2022-08-05T16:19:51.098701+00:00",
+    "updated_at": "2022-08-05T16:19:51.098701+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/minion.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 21,
+    "name": "Surreal Diffusion",
+    "is_visible": true,
+    "created_at": "2022-07-24T17:14:06.667599+00:00",
+    "updated_at": "2022-07-24T17:14:06.667599+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/surreal.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 23,
+    "name": "Provenance",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/provenance-thumbnail-8.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 24,
+    "name": "Rose Gold",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/rose-gold-thumbnail.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 34,
+    "name": "Melancholic",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/melancholic.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 35,
+    "name": "Transitory",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/transitory.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 37,
+    "name": "Toasty",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/toasty.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 38,
+    "name": "Arcane",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/arcane.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 39,
+    "name": "Daydream",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/daydream.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 36,
+    "name": "Aquatic",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/aquatic_2.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 33,
+    "name": "Radioactive",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/radioactive.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 32,
+    "name": "Robots",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/robots.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 31,
+    "name": "Death",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/death.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 30,
+    "name": "Love",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/love.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 29,
+    "name": "Surreal",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/fuchs_thumbnail.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 26,
+    "name": "Blacklight",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/backlight.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 25,
+    "name": "Moonwalker",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:03:06.120170+00:00",
+    "updated_at": "2022-12-14T19:03:06.120170+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/moonwalker.jpg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 40,
+    "name": "Malevolent",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/malevolent.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 41,
+    "name": "Street Art",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/streetart.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 42,
+    "name": "Unrealistic",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/unrealistic.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 45,
+    "name": "Comic",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/comic.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 46,
+    "name": "Anime",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/anime.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 47,
+    "name": "Line-Art",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/lineart.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 48,
+    "name": "Gouache",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/gouache.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 49,
+    "name": "Polygon",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/polygon.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 50,
+    "name": "Paint",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/paint.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 51,
+    "name": "VFX",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vfx.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 52,
+    "name": "HDR",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/hdr.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 53,
+    "name": "Analogue",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/analogue.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 54,
+    "name": "Retro-Futurism",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/retrofuturism.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 55,
+    "name": "Isometric",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/isometric.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 56,
+    "name": "Abstract Fluid",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/abstractfluid.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 57,
+    "name": "Bad Trip",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/badtrip.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 58,
+    "name": "Cartoonist",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/cartoonist.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 59,
+    "name": "Pixel Art",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/pixelartv2.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 60,
+    "name": "Vector",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vector.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 61,
+    "name": "Fantastical",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/fantastical.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 43,
+    "name": "Vibrance",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vibrance.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 62,
+    "name": "The City",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/thecity.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 63,
+    "name": "Spectral",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/spectral.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 64,
+    "name": "Dystopia",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/dystopia.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 65,
+    "name": "Diorama",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/diorama.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 67,
+    "name": "Abstract",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/abstract.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 69,
+    "name": "Watercolor",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/watercolor2.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 70,
+    "name": "Illustrative",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/illustrative.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 71,
+    "name": "Soft Touch",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/softtouch.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 72,
+    "name": "Winter",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/winter.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 73,
+    "name": "Festive",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/festive.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 74,
+    "name": "Splatter",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/splatter.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 44,
+    "name": "Pandora",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:20:04.635664+00:00",
+    "updated_at": "2022-12-14T19:20:04.635664+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/pandora.jpeg",
+    "model_type": "vqgan"
+  },
+  {
+    "id": 66,
+    "name": "Flora",
+    "is_visible": true,
+    "created_at": "2022-12-14T19:18:56.380299+00:00",
+    "updated_at": "2022-12-14T19:18:56.380299+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/flora.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 75,
+    "name": "Instruct",
+    "is_visible": true,
+    "created_at": "2023-01-23T23:23:20.241581+00:00",
+    "updated_at": "2023-01-23T23:23:20.241581+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/splatter.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 76,
+    "name": "Realistic v2",
+    "is_visible": true,
+    "created_at": "2023-01-30T17:23:54.792604+00:00",
+    "updated_at": "2023-01-30T17:23:54.792604+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/realistic_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 77,
+    "name": "Anime v2",
+    "is_visible": true,
+    "created_at": "2023-01-30T17:23:54.792604+00:00",
+    "updated_at": "2023-01-30T17:23:54.792604+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/realistic_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 78,
+    "name": "Intimate",
+    "is_visible": true,
+    "created_at": "2023-01-30T21:23:22.161389+00:00",
+    "updated_at": "2023-01-30T21:23:22.161389+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/realistic_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 81,
+    "name": "Flora v2",
+    "is_visible": true,
+    "created_at": "2023-02-14T17:28:24.586774+00:00",
+    "updated_at": "2023-02-14T17:28:24.586774+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/floralv2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 82,
+    "name": "HDR v2",
+    "is_visible": true,
+    "created_at": "2023-02-14T17:29:04.702035+00:00",
+    "updated_at": "2023-02-14T17:29:04.702035+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/hdrv2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 87,
+    "name": "Item v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/item.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 88,
+    "name": "Blues v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/bluesv2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 89,
+    "name": "Unrealistic v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/photorealism.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 90,
+    "name": "Cartoonist v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/cartoonist_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 91,
+    "name": "Watercolor v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/watercolor_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 94,
+    "name": "Gloomy",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/gloomy_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 95,
+    "name": "The Cut",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/the_cut.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 97,
+    "name": "Dreamwave v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/dreamwave_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 98,
+    "name": "Rorschach v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/rorschach.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 99,
+    "name": "Vector v2",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/vectorv2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 100,
+    "name": "Flat Design",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/flatdesign.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 101,
+    "name": "Figure",
+    "is_visible": true,
+    "created_at": "2023-04-15T18:43:22.316439+00:00",
+    "updated_at": "2023-04-15T18:43:22.316439+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/figure.jpeg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 83,
+    "name": "Expressionism v2",
+    "is_visible": true,
+    "created_at": "2023-02-14T17:29:25.760017+00:00",
+    "updated_at": "2023-02-14T17:29:25.760017+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/expressionism2.png",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 102,
+    "name": "Abstract Fluid v2",
+    "is_visible": true,
+    "created_at": "2023-04-21T22:41:48.065517+00:00",
+    "updated_at": "2028-01-02T00:00:00+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/abstract_fluid_v2.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 103,
+    "name": "Illustrated v2",
+    "is_visible": true,
+    "created_at": "2023-04-21T22:41:48.065517+00:00",
+    "updated_at": "2028-01-01T00:00:00+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/illustrated.jpg",
+    "model_type": "diffusion"
+  },
+  {
+    "id": 104,
+    "name": "Ink v2",
+    "is_visible": true,
+    "created_at": "2023-04-28T17:44:56.820750+00:00",
+    "updated_at": "2028-11-26T12:00:10+00:00",
+    "deleted_at": null,
+    "photo_url": "https://d3j730xi5ph1dq.cloudfront.net/dream/style_thumbnail/ink_v2.jpg",
+    "model_type": "diffusion"
+  }
+]

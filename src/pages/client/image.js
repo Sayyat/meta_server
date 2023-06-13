@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import {Button, Col, Container, Row} from "react-bootstrap";
 
 export default function ImageGenerator() {
+    const [taskId, setTaskId] = useState('')
     const [description, setDescription] = useState('')
     const [ratio, setRatio] = useState('1x1')
     const [styles, setStyles] = useState([])
@@ -33,18 +34,18 @@ export default function ImageGenerator() {
         loadStyles()
     }, [])
 
-    async function loadStyles(){
+    async function loadStyles() {
         const response = await fetch("/api/dream/styles")
         const result = await response.json()
         setStyles(result)
     }
 
-    function handleStyleSelect(event){
+    function handleStyleSelect(event) {
         event.preventDefault()
         setStyle(event.target.value)
     }
 
-    function handleRatioSelect(event){
+    function handleRatioSelect(event) {
         event.preventDefault()
         setRatio(event.target.value)
     }
@@ -54,9 +55,27 @@ export default function ImageGenerator() {
             method: "post",
             headers: {},
             body: JSON.stringify({
-                description: description,
-                style: style,
-                ratio: ratio
+                description,
+                style,
+                ratio
+            })
+        }).then((response => response.json()))
+            .then((result) => {
+                console.log(result)
+                setTaskId(result.id)
+                setUrl(result.result)
+            })
+    }
+
+    function edit() {
+        fetch("/api/dream/generate", {
+            method: "post",
+            headers: {},
+            body: JSON.stringify({
+                taskId,
+                description,
+                style,
+                ratio
             })
         }).then((response => response.json()))
             .then((result) => {
@@ -116,6 +135,10 @@ export default function ImageGenerator() {
                     <Button
                         onClick={generate}>
                         Сгенерировать
+                    </Button>
+                    <Button
+                        onClick={edit}>
+                        Изменить
                     </Button>
                 </Row>
                 <Row>

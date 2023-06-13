@@ -4,7 +4,7 @@ const {detectLanguage, translate} = require("@/backend/translator");
 
 const dreamApiKey = process.env.DREAM_API_KEY
 
-const BASE_URL = 'https://api.luan.tools/api/tasks/';
+const BASE_URL = 'https://paint.api.wombo.ai/api/v2/tasks/';
 // const STYLES_URL = "https://api.luan.tools/api/styles/"
 
 const headers = {
@@ -15,11 +15,11 @@ const headers = {
 }
 const RATIO_MEAN = 1000
 
-async function translatePrompt(prompt){
+async function translatePrompt(prompt) {
     try {
         const lang = await detectLanguage(prompt)
         prompt = await translate(prompt, lang, "en")
-    } catch (error){
+    } catch (error) {
         console.log(error)
     }
     return prompt
@@ -50,24 +50,28 @@ async function editImage(taskUrl, styleId, prompt, width, height) {
             'width': width,
             'target_image_weight': 0.3,
             'has_watermark': false,
-            'allow_nsfw': false,
+            'allow_nsfw': true,
             'steps': 100,
             'negative_prompt': null,
             'text_cfg': 7.5,
             'seed': null
         }
     }
-    await axios.put(taskUrl, JSON.stringify(put_payload), headers).catch(error => console.log(error.response));
+    const {data} = await axios.put(taskUrl, JSON.stringify(put_payload), headers).catch(error => console.log(error.response));
+    return data
 }
 
 async function waitUntilReady(taskUrl) {
-    let state = "generating"
-    while (state === "generating") {
+    let wait = true
+    while (wait) {
         const get_response = await axios.get(taskUrl, headers).catch(error => console.log(error.response));
-        state = get_response?.data?.state
+        let state = get_response?.data?.state
+        console.log({state})
         if (state === "failed") {
+            wait = false
             return null
         } else if (state === "completed") {
+            wait = false
             return get_response.data;
         }
         await new Promise(res => setTimeout(res, 4000));
@@ -76,13 +80,13 @@ async function waitUntilReady(taskUrl) {
 
 async function generateImage(taskId, styleId, prompt, ratio) {
     const {width, height} = calculateWidthAndHeight(ratio)
-    taskId = taskId? taskId : await generateId()
+    taskId = taskId ? taskId : await generateId()
     const taskUrl = BASE_URL + taskId
-    console.log({prompt})
+    console.log(taskUrl)
     prompt = await translatePrompt(prompt)
-    console.log({prompt})
-    await editImage(taskUrl, styleId, prompt, width, height)
-    return await waitUntilReady(taskUrl)
+    const editData = await editImage(taskUrl, styleId, prompt, width, height)
+    console.log(editData.id)
+    return await waitUntilReady(BASE_URL + editData.id)
 }
 
 // console.log(calculateWidthAndHeight("3x5"))

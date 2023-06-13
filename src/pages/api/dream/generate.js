@@ -6,6 +6,6 @@ export default async function handler(req, res){
 
     console.log({taskId, style, description, ratio})
     const result = await generateImage(taskId, style, description, ratio)
-    console.log({dataInApi: result})
+
     res.status(200).json(result)
 }

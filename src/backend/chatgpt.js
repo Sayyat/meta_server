@@ -25,10 +25,10 @@ async function davinci(question) {
     }
 }
 
-async function gpt_3_5(dialogue = []) {
+async function gpt(dialogue = []) {
     try {
         const rawAnswer = await openai.createChatCompletion({
-            model: "gpt-3.5-turbo",
+            model: "gpt-4",
             messages: dialogue,
         });
         return rawAnswer.data.choices[0].message
@@ -78,7 +78,7 @@ function fixSizes(size) {
     return sizes[size]
 }
 
-module.exports = {davinci, gpt_3_5, image, imageVariants}
+module.exports = {davinci, gpt, image, imageVariants}
 
 
 

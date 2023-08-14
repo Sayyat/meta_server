@@ -1,6 +1,6 @@
 import {detectLanguage, translate} from "@/backend/translator";
 import {LocaleExpander, tts} from "@/backend/ttsfree";
-import {gpt_3_5} from "/src/backend/chatgpt"
+import {gpt} from "/src/backend/chatgpt"
 
 async function conversation(dialogue, beginning, ending) {
     try {
@@ -11,7 +11,7 @@ async function conversation(dialogue, beginning, ending) {
         englishDialogue.unshift(beginning)
         englishDialogue.push(ending)
         const lang = translations.pop()["lang"]
-        const englishAnswer = await gpt_3_5(englishDialogue);
+        const englishAnswer = await gpt(englishDialogue);
         const filteredAnswer = englishAnswer.content
 
         const nativeAnswer = await translate(filteredAnswer, 'en', lang)
@@ -23,7 +23,7 @@ async function conversation(dialogue, beginning, ending) {
     } catch (translateError) {
         console.log(`TranslateDialogueError: ${translateError}`)
         try {
-            const answer = await gpt_3_5(dialogue);
+            const answer = await gpt(dialogue);
             dialogue.unshift(CHAT_SETTINGS)
             console.log({answer})
             return {text: {role: answer.role, content: answer}, audio: null}

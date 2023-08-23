@@ -1,6 +1,6 @@
 const axios = require('axios');
-// const styles = require("./styles.json")
-const styles = require("./allStyles.json")
+const styles = require("./styles.json")
+// const styles = require("./allStyles.json")
 const {detectLanguage, translate} = require("@/backend/translator");
 
 const dreamApiKey = process.env.DREAM_API_KEY
@@ -67,6 +67,7 @@ async function waitUntilReady(taskUrl) {
     while (true) {
         const get_response = await axios.get(taskUrl, headers).catch(error => console.log(error.response));
         state = get_response?.data?.state
+        // console.log(state)
         if (state === "failed") {
             return undefined
         } else if (state === "completed") {

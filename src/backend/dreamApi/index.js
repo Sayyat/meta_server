@@ -1,11 +1,13 @@
 const axios = require('axios');
-const styles = require("./styles.json")
+// const styles = require("./styles.json")
+const styles = require("./allStyles.json")
 const {detectLanguage, translate} = require("@/backend/translator");
 
 const dreamApiKey = process.env.DREAM_API_KEY
 
 const BASE_URL = 'https://api.luan.tools/api/tasks/';
-// const STYLES_URL = "https://api.luan.tools/api/styles/"
+
+
 
 const headers = {
     headers: {

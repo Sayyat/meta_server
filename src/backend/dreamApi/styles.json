@@ -7,7 +7,7 @@
     "created_at": "2023-01-30T17:23:54.792604Z",
     "updated_at": "2023-01-30T17:23:54.792604Z",
     "deleted_at": null,
-    "photo_url": "/styles/Anime v2.1.jpg",
+    "photo_url": "https://api.amadao.network/styles/Anime v2.1.jpg",
     "model_type": "diffusion"
   },
   {
@@ -18,7 +18,7 @@
     "created_at": "2023-02-14T17:29:50.526085+00:00",
     "updated_at": "2023-02-14T17:29:50.526085+00:00",
     "deleted_at": null,
-    "photo_url": "/styles/Buliojourney v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Buliojourney v2.jpg",
     "model_type": "diffusion"
   },
   {
@@ -29,7 +29,7 @@
     "created_at": "2023-02-14T17:29:25.760017Z",
     "updated_at": "2023-02-14T17:29:25.760017Z",
     "deleted_at": null,
-    "photo_url": "/styles/Expressionism v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Expressionism v2.jpg",
     "model_type": "diffusion"
   },
   {
@@ -40,7 +40,7 @@
     "created_at": "2023-04-15T18:43:22.316439Z",
     "updated_at": "2023-04-15T18:43:22.316439Z",
     "deleted_at": null,
-    "photo_url": "/styles/Figure.jpg",
+    "photo_url": "https://api.amadao.network/styles/Figure.jpg",
     "model_type": "diffusion"
   },
   {
@@ -51,7 +51,7 @@
     "created_at": "2023-02-14T17:28:24.586774Z",
     "updated_at": "2023-02-14T17:28:24.586774Z",
     "deleted_at": null,
-    "photo_url": "/styles/Flora v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Flora v2.jpg",
     "model_type": "diffusion"
   },
   {
@@ -62,7 +62,7 @@
     "created_at": "2023-08-08T19:06:16.968371Z",
     "updated_at": "2023-08-08T19:06:16.968371Z",
     "deleted_at": null,
-    "photo_url": "/styles/Horror Cut v2.0.jpg",
+    "photo_url": "https://api.amadao.network/styles/Horror Cut v2.0.jpg",
     "model_type": "diffusion"
   },
 
@@ -74,7 +74,7 @@
     "created_at": "2023-08-08T19:06:16.968371Z",
     "updated_at": "2023-08-08T19:06:16.968371Z",
     "deleted_at": null,
-    "photo_url": "/styles/Horror Cut v2.1.jpg",
+    "photo_url": "https://api.amadao.network/styles/Horror Cut v2.1.jpg",
     "model_type": "diffusion"
   },
   {
@@ -85,7 +85,7 @@
     "created_at": "2023-05-19T16:47:01.679593Z",
     "updated_at": "2028-12-15T12:00:10Z",
     "deleted_at": null,
-    "photo_url": "/styles/Horror v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Horror v2.jpg",
     "model_type": "diffusion"
   },
   {
@@ -96,7 +96,7 @@
     "created_at": "2023-04-28T17:44:56.82075Z",
     "updated_at": "2028-11-26T12:00:10Z",
     "deleted_at": null,
-    "photo_url": "/styles/Ink v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Ink v2.jpg",
     "model_type": "diffusion"
   },
 
@@ -108,7 +108,7 @@
     "created_at": "2023-05-06T19:35:25.642357+00:00",
     "updated_at": "2028-11-27T12:00:10+00:00",
     "deleted_at": null,
-    "photo_url": "/styles/Poster Art.jpg",
+    "photo_url": "https://api.amadao.network/styles/Poster Art.jpg",
     "model_type": "diffusion"
   },
 
@@ -120,7 +120,7 @@
     "created_at": "2023-08-08T19:06:16.968371Z",
     "updated_at": "2023-08-08T19:06:16.968371Z",
     "deleted_at": null,
-    "photo_url": "/styles/Retro Sci-Fi v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Retro Sci-Fi v2.jpg",
     "model_type": "diffusion"
   },
 
@@ -132,7 +132,7 @@
     "created_at": "2023-08-08T19:06:16.968371Z",
     "updated_at": "2023-08-08T19:06:16.968371Z",
     "deleted_at": null,
-    "photo_url": "/styles/Simple Design v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Simple Design v2.jpg",
     "model_type": "diffusion"
   },
   {
@@ -143,7 +143,7 @@
     "created_at": "2023-04-15T18:43:22.316439+00:00",
     "updated_at": "2023-04-15T18:43:22.316439+00:00",
     "deleted_at": null,
-    "photo_url": "/styles/Spectral v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/Spectral v2.jpg",
     "model_type": "diffusion"
   },
   {
@@ -154,7 +154,7 @@
     "created_at": "2023-08-08T19:06:16.968371Z",
     "updated_at": "2023-08-08T19:06:16.968371Z",
     "deleted_at": null,
-    "photo_url": "/styles/Steampunk v2",
+    "photo_url": "https://api.amadao.network/styles/Steampunk v2",
     "model_type": "diffusion"
   },
   {
@@ -165,7 +165,7 @@
     "created_at": "2023-04-15T18:43:22.316439+00:00",
     "updated_at": "2023-04-15T18:43:22.316439+00:00",
     "deleted_at": null,
-    "photo_url": "/styles/The Bulio Cut.jpg",
+    "photo_url": "https://api.amadao.network/styles/The Bulio Cut.jpg",
     "model_type": "diffusion"
   },
   {
@@ -176,7 +176,7 @@
     "created_at": "2023-02-14T17:17:20.701241Z",
     "updated_at": "2023-02-14T17:17:20.701241Z",
     "deleted_at": null,
-    "photo_url": "/styles/VFX v2.jpg",
+    "photo_url": "https://api.amadao.network/styles/VFX v2.jpg",
     "model_type": "diffusion"
   }
 ]

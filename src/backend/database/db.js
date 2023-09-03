@@ -26,18 +26,21 @@ const pool = mariadb.createPool({
     database: process.env.DATABASE,
     user: process.env.USER,
     password: process.env.PASSWORD,
-    connectTimeout: 100
+    connectTimeout: 5
 })
 
+
 export default async function executeQuery(query, values) {
-    let result = {result: null, error: null}
+    let conn, result
     try {
-        const conn = await pool.getConnection();
-        const res = await conn.query(query, values)
-        result = {result: res, error: null}
+        conn = await pool.getConnection();
+        result = await conn.query(query, values)
     } catch (e) {
         console.error(e)
-        result = {result: null, error: e}
+        result = null
+    } finally {
+        if(conn)
+            await conn.release()
     }
 
     return result

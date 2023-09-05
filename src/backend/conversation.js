@@ -23,8 +23,8 @@ async function conversation(dialogue, beginning, ending) {
     } catch (translateError) {
         console.log(`TranslateDialogueError: ${translateError}`)
         try {
-            const answer = await gpt(dialogue);
             dialogue.unshift(beginning)
+            const answer = await gpt(dialogue);
             console.log({answer})
             return {text: {role: answer.role, content: answer.content}, audio: null}
         } catch (gptError) {

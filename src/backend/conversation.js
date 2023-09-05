@@ -24,9 +24,9 @@ async function conversation(dialogue, beginning, ending) {
         console.log(`TranslateDialogueError: ${translateError}`)
         try {
             const answer = await gpt(dialogue);
-            dialogue.unshift(CHAT_SETTINGS)
+            dialogue.unshift(beginning)
             console.log({answer})
-            return {text: {role: answer.role, content: answer}, audio: null}
+            return {text: {role: answer.role, content: answer.content}, audio: null}
         } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
         }

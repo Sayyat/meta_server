@@ -26,7 +26,7 @@
     "mysql": "^2.18.1",
     "next": "13.1.6",
     "node-jose": "^2.2.0",
-    "openai": "^3.2.1",
+    "openai": "^4.4.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",

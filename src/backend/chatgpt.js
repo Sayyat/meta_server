@@ -1,14 +1,13 @@
-import {Configuration, OpenAIApi} from "openai"
+import {OpenAI} from "openai"
 
-const configuration = new Configuration({
+const openai = new OpenAI({
     organization: process.env.OPENAI_ORGANIZATION,
     apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
 async function davinci(question) {
     try {
-        const rawAnswer = await openai.createCompletion({
+        const rawAnswer = await openai.completions.create({
             model: "text-davinci-003",
             prompt: question,
             temperature: 0.9,
@@ -18,7 +17,7 @@ async function davinci(question) {
             presence_penalty: 0.6
         });
 
-        return rawAnswer.data.choices[0].text
+        return rawAnswer.choices[0].text
     }
     catch (error){
         throw `ChatGPT error: ${error.response.statusText}`
@@ -27,11 +26,11 @@ async function davinci(question) {
 
 async function gpt(dialogue = []) {
     try {
-        const rawAnswer = await openai.createChatCompletion({
+        const rawAnswer = await openai.chat.completions.create({
             model: "gpt-4",
             messages: dialogue,
         });
-        return rawAnswer.data.choices[0].message
+        return rawAnswer.choices[0].message
     }
     catch (error){
         throw `ChatGPT error: ${error.response.statusText}`
@@ -43,7 +42,7 @@ async function image(description, count, size) {
 
     size = fixSizes(size)
     console.log({description, count, size})
-    return await openai.createImage({
+    return await openai.images.generate({
         prompt: description,
         n: Math.min(10, count),
         size: size,
@@ -55,11 +54,11 @@ async function image(description, count, size) {
 }
 
 async function imageVariants(image) {
-    return await openai.createImageVariation({
+    return openai.images.createVariation({
         image: image,
         n: 1,
         size: "256x256",
-    })
+    });
 }
 
 

@@ -36,7 +36,7 @@ export default async function executeQuery(query, values) {
         conn = await pool.getConnection();
         result = await conn.query(query, values)
     } catch (e) {
-        console.error(e)
+        console.error("DB Error")
         result = null
     } finally {
         if(conn)

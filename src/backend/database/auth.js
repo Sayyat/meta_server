@@ -36,16 +36,16 @@ export async function loginGoogle(email) {
     const loginQuery = await executeQuery(`select * from users where email = '${email}';`, [])
 
     // sql query result has no error, and we have found user in database
-    if (!loginQuery.error && loginQuery.result.length > 0) {
-        if (loginQuery.result.length > 1) {
+    if (loginQuery && loginQuery.length > 0) {
+        if (loginQuery.length > 1) {
             console.log("There are more than 1 user in table users")
         }
-        return loginQuery.result[0]
+        return loginQuery[0]
     }
     // sql query result has some error, or we did not find user in database
     const signUpQuery = await executeQuery(`insert into users (email) values ('${email}');`, [])
 
-    const id = signUpQuery.result.insertId
+    const id = signUpQuery.insertId
 
     return {
         id: id, nickname: '', email: email, walletAddress: '', walletBalance: '', walletChainId: '' , avatarUrl: ''

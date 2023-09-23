@@ -27,7 +27,7 @@ async function davinci(question) {
 async function gpt(dialogue = []) {
     try {
         const rawAnswer = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
+            model: "gpt-3.5-turbo-16k",
             messages: dialogue,
         });
         return rawAnswer.choices[0].message

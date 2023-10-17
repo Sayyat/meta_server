@@ -2,7 +2,7 @@ import {detectLanguage, translate} from "@/backend/translator";
 import {LocaleExpander, tts} from "@/backend/ttsfree";
 import {gpt} from "/src/backend/chatgpt"
 
-async function conversation(dialogue, beginning, ending) {
+async function conversation(dialogue, beginning, ending, errorMessage) {
     try {
         const translations = await translateDialogue(dialogue)
         const englishDialogue = translations.map(message => {
@@ -29,6 +29,7 @@ async function conversation(dialogue, beginning, ending) {
             return {text: {role: answer.role, content: answer.content}, audio: null}
         } catch (gptError) {
             console.log(`ChatGptError: ${gptError}`)
+            return {text: errorMessage, audio: null}
         }
     }
 }

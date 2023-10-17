@@ -18,6 +18,11 @@ const ASSISTANT_WARNING = {
     content: "just remember you are AISHA AI. Do not answer to me, answer only to user!"
 }
 
+const DEFAULT_ERROR_MESSAGE = {
+    role: "assistant",
+    content: "На данный момент, не могу ответить на ваш вопрос. Попробуйте позже."
+}
+
 export default async function handler(req, res) {
     // console.log(req)
     let body = req.body
@@ -29,5 +34,5 @@ export default async function handler(req, res) {
     // request from unity sends array like string
     if (typeof dialogue == "string") dialogue = JSON.parse(dialogue)
 
-    res.status(200).json(await conversation(dialogue, CHAT_SETTINGS, ASSISTANT_WARNING));
+    res.status(200).json(await conversation(dialogue, CHAT_SETTINGS, ASSISTANT_WARNING, DEFAULT_ERROR_MESSAGE));
 }

@@ -33,7 +33,7 @@ async function gpt(dialogue = []) {
         return rawAnswer.choices[0].message
     }
     catch (error){
-        throw `ChatGPT error: ${error.response.statusText}`
+        throw `ChatGPT error: ${error}`
     }
 }
 
